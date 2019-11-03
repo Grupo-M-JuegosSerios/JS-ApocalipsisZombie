@@ -62,37 +62,14 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
-  </character>
-  <character id="Perrete">
-    <resources name="No name">
-      <asset type="standup" uri="assets/animation/chuchillo.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
-      <asset type="standright" uri="assets/special/EmptyAnimation" />
-      <asset type="standleft" uri="assets/special/EmptyAnimation" />
-      <asset type="speakup" uri="assets/special/EmptyAnimation" />
-      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
-      <asset type="speakright" uri="assets/special/EmptyAnimation" />
-      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
-      <asset type="useright" uri="assets/special/EmptyAnimation" />
-      <asset type="useleft" uri="assets/special/EmptyAnimation" />
-      <asset type="walkup" uri="assets/special/EmptyAnimation" />
-      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
-      <asset type="walkright" uri="assets/special/EmptyAnimation" />
-      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
-    </resources>
-    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
-      <frontcolor color="#FFFFFF" />
-      <bordercolor color="#000000" />
-    </textcolor>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="AyudarAChica" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Gatito">
     <resources name="No name">
@@ -156,18 +133,176 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
+  <character id="Jefe">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/JefeFDI.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Zombie">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/Z.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Horda">
+    <resources name="No name">
+      <asset type="standup" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Quimico">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/profesor.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Perrete">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/perrete.eaa.xml" />
+      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
   <scene id="Título" hideInventory="no" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/ManoPortadaSinFondoç.png" />
+      <asset type="background" uri="assets/background/Portada-Juego.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="133" y="86" width="187" height="539" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+      <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+      <exit rectangular="yes" x="719" y="631" width="369" height="135" hasInfluenceArea="no" idTarget="Créditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -181,6 +316,21 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
+  <scene id="InteriorMetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Escaleras metro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="310" y="415" width="375" height="280" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
   <scene id="MetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -190,8 +340,12 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Ayudante" x="1443" y="1028" scale="0.4639588" orientation="0" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="HombreCiu" x="272" y="581" scale="0.1017398" orientation="0" layer="0" hasInfluenceArea="no" />
+    </characters>
     <active-areas>
-      <active-area id="CompraRecuros" rectangular="yes" x="235" y="735" width="220" height="286" hasInfluenceArea="no" behaviour="normal">
+      <active-area id="CompraRecuros" rectangular="yes" x="225" y="585" width="150" height="176" hasInfluenceArea="no" behaviour="normal">
         <description>
           <name>
           </name>
@@ -212,12 +366,17 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="550" y="470" width="746" height="209" hasInfluenceArea="no" idTarget="PasilloMedicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="PasilloMedicina" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/hallMedicina.jpg" />
     </resources>
     <name>
     </name>
@@ -247,7 +406,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/Geografía e Historia UCM.jpg" />
     </resources>
     <name>
     </name>
@@ -267,11 +426,16 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/Bellas-Artes-UCM.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="430" y="320" width="550" height="605" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="SalaPinturas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -283,7 +447,7 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <scene id="Física" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="Químicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -293,7 +457,7 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <scene id="LabFísica" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="LabQuímicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
@@ -307,7 +471,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/Informática - UCM.jpg" />
     </resources>
     <name>
     </name>
@@ -323,7 +487,18 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.440479007824 -3.73805165290806 0.0134554053310296 0.0158143043517955" center="(40.4495584361352, -3.72652888298026)" zoom="15" start="no" />
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.440479007824 -3.73805165290806 0.0134554053310296 0.0158143043517955" center="(40.4433474874218, -3.72542381352103)" zoom="18" start="no">
+    <map-element targetId="Ayudante" layer="0" scale="0.02805738" orientation="0">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.443675994873, -3.72662281990051)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+  </map-scene>
   <geoelement id="metroCiu">
     <description>
       <name>
@@ -334,12 +509,352 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="0">
+      <geometry influence="15">
         <Point>
           <pos>40.4435621917375 -3.72687499779943</pos>
         </Point>
       </geometry>
     </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="MetroCiu" x="1024" y="1023" zoneId="metroCiu" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+      <exit-action>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Ayudante</step>
+          </navigate>
+          <condition />
+        </effect>
+        <only-from-inside>True</only-from-inside>
+      </exit-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Medicina">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4434609447396 -3.72512965107763 40.443673239113 -3.72295898568426 40.4453980707837 -3.72322720658574 40.44522660701 -3.72544615174119</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="Medicina" x="269" y="225" zoneId="metroCiu" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+      <exit-action>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Ayudante</step>
+          </navigate>
+          <condition />
+        </effect>
+        <only-from-inside>True</only-from-inside>
+      </exit-action>
+    </actions>
+  </geoelement>
+  <geoelement id="bellasArtes">
+    <description>
+      <name>Bellas Artes</name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4395307 -3.7345576 40.4395307 -3.7332537 40.4406718478569 -3.73314641197163 40.4407208407284 -3.73451468432275</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="BellasArtes" x="400" y="450" zoneId="metroCiu" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="Físicas">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4506620454098 -3.72691022904947 40.4508620696776 -3.72528945055567 40.4514200229562 -3.72538064566216 40.451215918249 -3.72697460075618</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
     <actions />
   </geoelement>
+  <geoelement id="Historia">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4487070497697 -3.73506950756363 40.4488540210479 -3.73373840895308 40.4497500506489 -3.7340066298546 40.449692893806 -3.73529481312057</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions />
+  </geoelement>
+  <geoelement id="Informatica">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4525194928579 -3.73398589512157 40.4526827735058 -3.73285864439619 40.4530894740371 -3.73292301741248 40.4529833423034 -3.73411464115429</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions />
+  </geoelement>
+  <geoelement id="Quimicas">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4497030574923 -3.72530090233101 40.4497887834747 -3.724425779253 40.4507828933107 -3.72462426272012 40.4506890043321 -3.72547792910827</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
+      </geometry>
+    </geometries>
+    <actions />
+  </geoelement>
+  <graph-conversation id="InicioJuego">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Ha pasado un tiempo desde la última vez que estuve aquí. ¿Tres años, quizás? Tal vez cuatro. Estoy segura de que todo habrá cambiado. Después de todo, Ciudad Universitaria quedó abandonada desde que comenzó el inicio del fin, desde que aquellos seres se alzaron de sus tumbas y acabaron con la vida tal y como la conocíamos. Atacaron mi antiguo refugio, y nos vimos obligados a escapar. Desafortunadamente, tan solo yo sobreviví a aquella invasión protagonizada por muertos vivientes. Y aquí estoy ahora, buscando el refugio del que oí hablar en mi anterior hogar.</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">¡Ayuda! ¡Socorro! ¡No puedo moverme!</speak-char>
+      <condition />
+      <speak-player>¿Eso era una voz? Creo que procedía del exterior del metro.</speak-player>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="AyudarAChica">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="63">
+      <speak-char idTarget="Ayudante">Dios mío, menos mal que has aparecido. No puedo moverme.</speak-char>
+      <condition />
+      <speak-player>¿Qué te ha ocurrido?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Estaba buscando algunos recursos y tuve un accidente. Me he arrastrado hasta aquí pensando que alguien me encontraría.</speak-char>
+      <condition />
+      <speak-player>¿Eso es sangre?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Ni me lo menciones. Creo que al caer me he clavado algo metálico en la pierna. Creo que no es muy profundo, pero sangra muchísimo.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Escucha, necesito tu ayuda. Tengo que detener esta hemorragia o creo que voy a morir desangrada. En la antigua facultad de medicina aún quedan algunos bisturís, por no hablar de vendas. Puede que incluso muletas. No está muy lejos. Por favor, ayúdame.</speak-char>
+      <condition />
+      <speak-player>¿Y yo qué gano a cambio?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Oh, ¿en serio? Agh, supongo que a estas alturas el altruismo ya no existe. Vale, mi refugio no está demasiado lejos. Estamos muy bien equipados, y te veo algo sola. Te llevaré, si así lo quieres.</speak-char>
+      <condition />
+      <speak-player>Está bien, lo haré.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Medicina</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <object id="Muletas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Vendas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Spray" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/Botesdepintura.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Pinturas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/bote-pintura3.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="bisturi" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="sillaDeRuedas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Bifaz" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/bifaz_2.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Alcohol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/dibujo-alcohol.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <atrezzoobject id="Señales">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/Señales de humo.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
 </eAdventure>
