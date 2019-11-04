@@ -3,6 +3,30 @@
 <comment> Project Configuration </comment>
 <entry key="Chapter0.MetroCiu.X">432</entry>
 <entry key="Chapter0.MetroCiu.Y">271</entry>
-<entry key="Chapter0.Título.X">355</entry>
-<entry key="Chapter0.Título.Y">41</entry>
+<entry key="Chapter0.Título.X">463</entry>
+<entry key="Chapter0.Título.Y">2</entry>
+<entry key="Chapter0.InteriorMetroCiu.X">766</entry>
+<entry key="Chapter0.InteriorMetroCiu.Y">367</entry>
+<entry key="Chapter0.Medicina.X">-26</entry>
+<entry key="Chapter0.Medicina.Y">433</entry>
+<entry key="Chapter0.PasilloMedicina.X">-51</entry>
+<entry key="Chapter0.PasilloMedicina.Y">362</entry>
+<entry key="Chapter0.Historia.X">444</entry>
+<entry key="Chapter0.Historia.Y">440</entry>
+<entry key="Chapter0.BellasArtes.X">160</entry>
+<entry key="Chapter0.BellasArtes.Y">324</entry>
+<entry key="Chapter0.Créditos.X">688</entry>
+<entry key="Chapter0.Créditos.Y">-93</entry>
+<entry key="Chapter0.Química.X">0</entry>
+<entry key="Chapter0.Química.Y">103</entry>
+<entry key="Chapter0.LabQuímica.X">-16</entry>
+<entry key="Chapter0.LabQuímica.Y">370</entry>
+<entry key="Chapter0.MuseoHistoria.X">666</entry>
+<entry key="Chapter0.MuseoHistoria.Y">497</entry>
+<entry key="Chapter0.Informática.X">118</entry>
+<entry key="Chapter0.Informática.Y">-105</entry>
+<entry key="Chapter0.SalaPinturas.X">220</entry>
+<entry key="Chapter0.SalaPinturas.Y">208</entry>
+<entry key="Chapter0.Químicas.X">-13</entry>
+<entry key="Chapter0.Químicas.Y">400</entry>
 </properties>

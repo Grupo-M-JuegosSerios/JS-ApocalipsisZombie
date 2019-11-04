@@ -326,7 +326,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="310" y="415" width="375" height="280" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="205" y="350" width="375" height="280" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -367,7 +367,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="550" y="470" width="746" height="209" hasInfluenceArea="no" idTarget="PasilloMedicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="535" y="390" width="756" height="264" hasInfluenceArea="no" idTarget="PasilloMedicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -381,6 +381,11 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="10" y="794" width="1809" height="235" hasInfluenceArea="no" idTarget="Medicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="Química" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -411,6 +416,11 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="145" y="803" width="380" height="130" hasInfluenceArea="no" idTarget="MuseoHistoria" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="MuseoHistoria" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -432,7 +442,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="430" y="320" width="550" height="605" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="103" y="325" width="1611" height="600" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -747,7 +757,7 @@
   </object>
   <object id="Vendas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/vendas.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
