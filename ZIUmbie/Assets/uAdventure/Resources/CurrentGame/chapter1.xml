@@ -35,7 +35,7 @@
   <character id="Ayudante">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/chica.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/chica.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -64,7 +64,12 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="EncontrarHelena" />
+        </condition>
         <effect>
+          <trigger-scene idTarget="MetroCiu" x="907" y="771" transitionTime="0" transitionType="0" />
+          <condition />
           <trigger-conversation idTarget="AyudarAChica" />
           <condition />
         </effect>
@@ -73,8 +78,8 @@
   </character>
   <character id="Gatito">
     <resources name="No name">
-      <asset type="standup" uri="assets/animation/chuchillo.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standup" uri="assets/animation/gatete.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/gatete.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -105,7 +110,7 @@
   <character id="HombreCiu">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/viejo.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/viejo.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -136,7 +141,7 @@
   <character id="Jefe">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/JefeFDI.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/JefeFDI.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -167,7 +172,7 @@
   <character id="Zombie">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/Z.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/Z.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -229,7 +234,7 @@
   <character id="Quimico">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/profesor.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/profesor.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -260,7 +265,7 @@
   <character id="Perrete">
     <resources name="No name">
       <asset type="standup" uri="assets/animation/perrete.eaa.xml" />
-      <asset type="standdown" uri="assets/special/EmptyAnimation" />
+      <asset type="standdown" uri="assets/animation/perrete.eaa.xml" />
       <asset type="standright" uri="assets/special/EmptyAnimation" />
       <asset type="standleft" uri="assets/special/EmptyAnimation" />
       <asset type="speakup" uri="assets/special/EmptyAnimation" />
@@ -298,11 +303,36 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="InteriorMetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="InicioJuego" />
+          <condition />
+        </post-effect>
       </exit>
       <exit rectangular="yes" x="719" y="631" width="369" height="135" hasInfluenceArea="no" idTarget="Créditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="InteriorMetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Escaleras metro.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="255" y="354" width="314" height="203" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <speak-player>¿Hay alguien por aquí?</speak-player>
+          <condition />
+          <speak-char idTarget="Ayudante">¡Sí! ¡Ayúdame, estoy al lado de la antigua parada del autobús!</speak-char>
+          <condition />
+        </post-effect>
       </exit>
     </exits>
   </scene>
@@ -316,21 +346,6 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <scene id="InteriorMetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/Escaleras metro.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="205" y="350" width="375" height="280" hasInfluenceArea="no" idTarget="MetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
   <scene id="MetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -342,7 +357,11 @@
     <default-initial-position x="400" y="450" />
     <characters>
       <character-ref idTarget="Ayudante" x="1443" y="1028" scale="0.4639588" orientation="0" layer="1" hasInfluenceArea="no" />
-      <character-ref idTarget="HombreCiu" x="272" y="581" scale="0.1017398" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="HombreCiu" x="272" y="581" scale="0.1017398" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="EncontrarHelena" />
+        </condition>
+      </character-ref>
     </characters>
     <active-areas>
       <active-area id="CompraRecuros" rectangular="yes" x="225" y="585" width="150" height="176" hasInfluenceArea="no" behaviour="normal">
@@ -383,7 +402,7 @@
     <default-initial-position x="400" y="450" />
     <exits>
       <exit rectangular="yes" x="10" y="794" width="1809" height="235" hasInfluenceArea="no" idTarget="Medicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -418,7 +437,7 @@
     <default-initial-position x="400" y="450" />
     <exits>
       <exit rectangular="yes" x="145" y="803" width="380" height="130" hasInfluenceArea="no" idTarget="MuseoHistoria" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -497,16 +516,37 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.440479007824 -3.73805165290806 0.0134554053310296 0.0158143043517955" center="(40.4433474874218, -3.72542381352103)" zoom="18" start="no">
-    <map-element targetId="Ayudante" layer="0" scale="0.02805738" orientation="0">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4438088171837, -3.72948467796968)" zoom="15" start="no">
+    <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.443675994873, -3.72662281990051)</param>
+        <param name="Position">(40.4434127807617, -3.7269594669342)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
+    </map-element>
+    <map-element targetId="metroCiu" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Medicina" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="bellasArtes" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Físicas" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Historia" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Informatica" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Quimicas" layer="0" scale="1" orientation="2">
+      <condition />
     </map-element>
   </map-scene>
   <geoelement id="metroCiu">
@@ -534,12 +574,6 @@
         <only-from-outside>True</only-from-outside>
       </enter-action>
       <exit-action>
-        <effect>
-          <navigate navigation-type="Ordered">
-            <step locks="False">Ayudante</step>
-          </navigate>
-          <condition />
-        </effect>
         <only-from-inside>True</only-from-inside>
       </exit-action>
     </actions>
@@ -701,8 +735,20 @@
     <actions />
   </geoelement>
   <graph-conversation id="InicioJuego">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
-      <speak-player>Ha pasado un tiempo desde la última vez que estuve aquí. ¿Tres años, quizás? Tal vez cuatro. Estoy segura de que todo habrá cambiado. Después de todo, Ciudad Universitaria quedó abandonada desde que comenzó el inicio del fin, desde que aquellos seres se alzaron de sus tumbas y acabaron con la vida tal y como la conocíamos. Atacaron mi antiguo refugio, y nos vimos obligados a escapar. Desafortunadamente, tan solo yo sobreviví a aquella invasión protagonizada por muertos vivientes. Y aquí estoy ahora, buscando el refugio del que oí hablar en mi anterior hogar.</speak-player>
+    <dialogue-node nodeindex="0" editor-x="58" editor-y="37">
+      <speak-player>Ha pasado un tiempo desde la última vez que estuve aquí.</speak-player>
+      <condition />
+      <speak-player>¿Tres años, quizás? Tal vez cuatro.</speak-player>
+      <condition />
+      <speak-player>Estoy segura de que todo habrá cambiado.</speak-player>
+      <condition />
+      <speak-player>Después de todo, Ciudad Universitaria quedó abandonada desde que comenzó el inicio del fin, desde que aquellos seres se alzaron de sus tumbas y acabaron con la vida tal y como la conocíamos.</speak-player>
+      <condition />
+      <speak-player>Atacaron mi antiguo refugio, y nos vimos obligados a escapar.</speak-player>
+      <condition />
+      <speak-player>Desafortunadamente, tan solo yo sobreviví a aquella invasión protagonizada por muertos vivientes.</speak-player>
+      <condition />
+      <speak-player>Y aquí estoy ahora, buscando el refugio del que oí hablar en mi anterior hogar. </speak-player>
       <condition />
       <speak-char idTarget="Ayudante">¡Ayuda! ¡Socorro! ¡No puedo moverme!</speak-char>
       <condition />
@@ -721,7 +767,7 @@
       <condition />
       <speak-player>¿Eso es sangre?</speak-player>
       <condition />
-      <speak-char idTarget="Ayudante">Ni me lo menciones. Creo que al caer me he clavado algo metálico en la pierna. Creo que no es muy profundo, pero sangra muchísimo.</speak-char>
+      <speak-char idTarget="Ayudante">No, es kétchup… ¡Pues claro que es sangre, genia!. Creo que al caer me he clavado algo metálico en la pierna. No es muy profundo, pero sangra muchísimo. </speak-char>
       <condition />
       <speak-char idTarget="Ayudante">Escucha, necesito tu ayuda. Tengo que detener esta hemorragia o creo que voy a morir desangrada. En la antigua facultad de medicina aún quedan algunos bisturís, por no hablar de vendas. Puede que incluso muletas. No está muy lejos. Por favor, ayúdame.</speak-char>
       <condition />
@@ -733,6 +779,10 @@
       <condition />
       <end-conversation>
         <effect>
+          <activate flag="EncontrarHelena" />
+          <condition />
+          <trigger-scene idTarget="CIU" x="907" y="771" transitionTime="0" transitionType="0" />
+          <condition />
           <navigate navigation-type="Ordered">
             <step locks="False">Medicina</step>
           </navigate>
