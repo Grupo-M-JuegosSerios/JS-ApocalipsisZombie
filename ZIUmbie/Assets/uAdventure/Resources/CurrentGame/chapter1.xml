@@ -297,18 +297,14 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/Portada-Juego.jpg" />
+      <asset type="background" uri="assets/background/portada.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="InteriorMetroCiu" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="Preinicio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
-        <post-effect>
-          <trigger-conversation idTarget="InicioJuego" />
-          <condition />
-        </post-effect>
       </exit>
       <exit rectangular="yes" x="719" y="631" width="369" height="135" hasInfluenceArea="no" idTarget="Créditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
@@ -340,11 +336,16 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/crreditos.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="80" y="837" width="348" height="165" hasInfluenceArea="no" idTarget="Título" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
   </scene>
   <scene id="MetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -355,6 +356,11 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="-31" y="-8" width="172" height="1090" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
     <characters>
       <character-ref idTarget="Ayudante" x="1443" y="1028" scale="0.4639588" orientation="0" layer="1" hasInfluenceArea="no" />
       <character-ref idTarget="HombreCiu" x="272" y="581" scale="0.1017398" orientation="0" layer="0" hasInfluenceArea="no">
@@ -395,13 +401,13 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/hallMedicina.jpg" />
+      <asset type="background" uri="assets/background/InteriorMedicina.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="10" y="794" width="1809" height="235" hasInfluenceArea="no" idTarget="Medicina" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="469" y="283" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -516,7 +522,7 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4438088171837, -3.72948467796968)" zoom="15" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.443436227326, -3.72649401491774)" zoom="19" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition />
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
@@ -528,10 +534,15 @@
       </ext-elem-ref>
     </map-element>
     <map-element targetId="metroCiu" layer="0" scale="1" orientation="2">
-      <condition />
+      <condition>
+        <active flag="EncontrarHelena" />
+        <active flag="IrAMedicina" />
+      </condition>
     </map-element>
     <map-element targetId="Medicina" layer="0" scale="1" orientation="2">
-      <condition />
+      <condition>
+        <active flag="EncontrarHelena" />
+      </condition>
     </map-element>
     <map-element targetId="bellasArtes" layer="0" scale="1" orientation="2">
       <condition />
@@ -546,6 +557,11 @@
       <condition />
     </map-element>
     <map-element targetId="Quimicas" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+  </map-scene>
+  <map-scene id="Preinicio" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436456982474, -3.72700374358588)" zoom="19" start="no">
+    <map-element targetId="PuntoInicio" layer="0" scale="1" orientation="2">
       <condition />
     </map-element>
   </map-scene>
@@ -608,9 +624,7 @@
       </enter-action>
       <exit-action>
         <effect>
-          <navigate navigation-type="Ordered">
-            <step locks="False">Ayudante</step>
-          </navigate>
+          <trigger-zoned-scene idTarget="CIU" x="907" y="771" zoneId="metroCiu" transitionTime="0" transitionType="0" />
           <condition />
         </effect>
         <only-from-inside>True</only-from-inside>
@@ -734,6 +748,45 @@
     </geometries>
     <actions />
   </geoelement>
+  <geoelement id="PuntoInicio">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="50">
+        <Point>
+          <pos>40.4436885651155 -3.72685085767211</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-scene idTarget="InteriorMetroCiu" x="907" y="771" transitionTime="0" transitionType="0" />
+          <condition />
+          <trigger-conversation idTarget="InicioJuego" />
+          <condition />
+        </effect>
+        <only-from-outside>False</only-from-outside>
+      </enter-action>
+      <exit-action>
+        <effect>
+          <speak-player>Por favor dirígete al punto de inicio para comenzar la historia</speak-player>
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">PuntoInicio</step>
+          </navigate>
+          <condition />
+        </effect>
+        <only-from-inside>False</only-from-inside>
+      </exit-action>
+    </actions>
+  </geoelement>
   <graph-conversation id="InicioJuego">
     <dialogue-node nodeindex="0" editor-x="58" editor-y="37">
       <speak-player>Ha pasado un tiempo desde la última vez que estuve aquí.</speak-player>
@@ -793,7 +846,7 @@
   </graph-conversation>
   <object id="Muletas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/muletas.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -849,7 +902,7 @@
   </object>
   <object id="bisturi" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/bisturi.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -863,7 +916,7 @@
   </object>
   <object id="sillaDeRuedas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/silla de ruedas.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
