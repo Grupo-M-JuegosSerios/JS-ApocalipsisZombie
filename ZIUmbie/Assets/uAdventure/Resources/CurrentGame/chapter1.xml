@@ -311,6 +311,21 @@
       </exit>
     </exits>
   </scene>
+  <scene id="Créditos" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/crreditos.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="80" y="837" width="348" height="165" hasInfluenceArea="no" idTarget="Título" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
   <scene id="InteriorMetroCiu" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -329,21 +344,6 @@
           <speak-char idTarget="Ayudante">¡Sí! ¡Ayúdame, estoy al lado de la antigua parada del autobús!</speak-char>
           <condition />
         </post-effect>
-      </exit>
-    </exits>
-  </scene>
-  <scene id="Créditos" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/crreditos.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="80" y="837" width="348" height="165" hasInfluenceArea="no" idTarget="Título" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -411,26 +411,12 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
-  </scene>
-  <scene id="Química" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="LabQuímica" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
+    <objects>
+      <object-ref idTarget="Muletas" x="577" y="461" scale="0.1443188" layer="0" hasInfluenceArea="no" />
+      <object-ref idTarget="Vendas" x="298" y="406" scale="0.08855415" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="sillaDeRuedas" x="898" y="636" scale="0.204157" layer="3" hasInfluenceArea="no" />
+      <object-ref idTarget="Alcohol" x="90" y="459" scale="0.08489117" layer="2" hasInfluenceArea="no" />
+    </objects>
   </scene>
   <scene id="Historia" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -472,11 +458,21 @@
       </exit>
     </exits>
   </scene>
-  <scene id="SalaPinturas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="PasilloBellasArtes" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+  </scene>
+  <scene id="SalaPinturas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Sala_Pinturas.png" />
     </resources>
     <name>
     </name>
@@ -486,7 +482,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/FacultadQuimicas.png" />
     </resources>
     <name>
     </name>
@@ -496,7 +492,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/LaboQuimica.jpg" />
     </resources>
     <name>
     </name>
@@ -517,6 +513,26 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+  </scene>
+  <scene id="Físicas1" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Fisica - UCM.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+  </scene>
+  <scene id="labFisicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/LaboratorioQuimicas.png" />
     </resources>
     <name>
     </name>
@@ -589,9 +605,6 @@
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
-      <exit-action>
-        <only-from-inside>True</only-from-inside>
-      </exit-action>
     </actions>
   </geoelement>
   <geoelement id="Medicina">
@@ -616,19 +629,15 @@
     </geometries>
     <actions>
       <enter-action>
+        <condition>
+          <inactive flag="IrAMedicina" />
+        </condition>
         <effect>
-          <trigger-zoned-scene idTarget="Medicina" x="269" y="225" zoneId="metroCiu" transitionTime="0" transitionType="0" />
+          <trigger-zoned-scene idTarget="Medicina" x="269" y="225" zoneId="Medicina" transitionTime="0" transitionType="0" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
-      <exit-action>
-        <effect>
-          <trigger-zoned-scene idTarget="CIU" x="907" y="771" zoneId="metroCiu" transitionTime="0" transitionType="0" />
-          <condition />
-        </effect>
-        <only-from-inside>True</only-from-inside>
-      </exit-action>
     </actions>
   </geoelement>
   <geoelement id="bellasArtes">
@@ -857,6 +866,14 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <give-to idTarget="Ayudante" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Muletas" />
+          <condition />
+        </effect>
+      </give-to>
+    </actions>
   </object>
   <object id="Vendas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -945,6 +962,104 @@
   <object id="Alcohol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/image/dibujo-alcohol.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Huesos" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="bifaz2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="cerillas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="barricada" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-barricade-barbed-wire-sandbag-fence-barbed-wire-material-png-5ad7cb27e3c075.5732824015240916879329.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="elementoQuimico" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="punteroLaser" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-flashlight-laser-pointers-lamp-5b0143d1092714.9522268415268095530375.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="vendas2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/vendas.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
