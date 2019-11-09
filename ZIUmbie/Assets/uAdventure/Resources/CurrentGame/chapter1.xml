@@ -88,9 +88,33 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <active flag="TratoHombreCiu" />
+          <inactive flag="IrBellasArtes" />
+          <inactive flag="IrQuimicas" />
         </condition>
         <effect>
           <trigger-conversation idTarget="ConversacionIrAPorRecursos" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: IrAHistoria</documentation>
+        <condition>
+          <active flag="RecogerPinturas" />
+          <inactive flag="IrHistoria" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="IrAHistoria" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: IrFisicas</documentation>
+        <condition>
+          <active flag="IrHistoria" />
+          <inactive flag="ItFisicas" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="IrFisicas" />
           <condition />
         </effect>
       </talk-to>
@@ -128,7 +152,6 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: AcariciarGato</documentation>
         <effect>
           <trigger-conversation idTarget="AcariciarGato" />
           <condition />
@@ -298,7 +321,6 @@
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: DarObjetosSeñalHumoQuimico</documentation>
         <effect>
           <trigger-conversation idTarget="DarObjetosSeñalHumoQuimico" />
           <condition />
@@ -473,7 +495,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="469" y="283" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
+      <exit rectangular="yes" x="62" y="289" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="PastillasEncontradas" />
@@ -498,12 +520,12 @@
       </exit>
     </exits>
     <objects>
-      <object-ref idTarget="Muletas" x="577" y="461" scale="0.1443188" layer="0" hasInfluenceArea="no" />
+      <object-ref idTarget="Muletas" x="413" y="479" scale="0.1443188" layer="0" hasInfluenceArea="no" />
       <object-ref idTarget="sillaDeRuedas" x="898" y="636" scale="0.204157" layer="5" hasInfluenceArea="no" />
-      <object-ref idTarget="bisturi" x="165" y="415" scale="0.02850303" layer="1" hasInfluenceArea="no" />
-      <object-ref idTarget="Huesos" x="871" y="439" scale="0.08324459" layer="2" hasInfluenceArea="no" />
+      <object-ref idTarget="bisturi" x="89" y="500" scale="0.02850303" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="Huesos" x="945" y="430" scale="0.06323124" layer="2" hasInfluenceArea="no" />
       <object-ref idTarget="punteroLaser" x="116" y="671" scale="0.08142237" layer="3" hasInfluenceArea="no" />
-      <object-ref idTarget="Pastillas" x="293" y="402" scale="0.01498249" layer="4" hasInfluenceArea="no" />
+      <object-ref idTarget="Pastillas" x="552" y="653" scale="0.01609253" layer="4" hasInfluenceArea="no" />
     </objects>
   </scene>
   <scene id="Químicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
@@ -572,8 +594,12 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="103" y="325" width="909" height="619" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
+      <exit rectangular="yes" x="425" y="295" width="340" height="695" hasInfluenceArea="no" idTarget="PasilloBellasArtes" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+        <post-effect>
+          <speak-char idTarget="Ayudante">¡Mira! ¡Allí hay sprays!</speak-char>
+          <condition />
+        </post-effect>
       </exit>
     </exits>
     <characters>
@@ -585,11 +611,40 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/bellasArtesPasillo.png" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="1066" y="160" width="197" height="811" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
+        <exit-look text="" />
+        <condition>
+          <equals var="objetosLabQuimicas" value="4" />
+        </condition>
+        <post-effect>
+          <speak-char idTarget="Ayudante">Ya tenemos todo lo necesario, hagamos el graffiti.</speak-char>
+          <condition />
+          <activate flag="RecogerPinturas" />
+          <condition />
+          <trigger-conversation idTarget="IrAHistoria" />
+          <condition />
+        </post-effect>
+        <not-effect>
+          <speak-char idTarget="Ayudante">Tenemos que coger más pinturas</speak-char>
+          <condition />
+        </not-effect>
+      </exit>
+    </exits>
+    <objects>
+      <object-ref idTarget="Spray" x="348" y="537" scale="0.05366979" layer="0" hasInfluenceArea="no" />
+      <object-ref idTarget="Pinturas" x="339" y="920" scale="0.5292308" layer="3" hasInfluenceArea="no" />
+      <object-ref idTarget="Spray2" x="721" y="610" scale="0.1255734" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="Spray3" x="136" y="218" scale="0.06015432" layer="2" hasInfluenceArea="no" />
+    </objects>
+    <characters>
+      <character-ref idTarget="Ayudante" x="908" y="962" scale="0.3299816" orientation="2" layer="4" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <scene id="Historia" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -603,28 +658,55 @@
     <exits>
       <exit rectangular="yes" x="145" y="803" width="380" height="130" hasInfluenceArea="no" idTarget="MuseoHistoria" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <speak-char idTarget="Ayudante">Rápido, encuentra los bifaces y los libros que te he mencionado, y continuemos.</speak-char>
+          <condition />
+          <activate flag="IrHistoria" />
+          <condition />
+        </post-effect>
       </exit>
     </exits>
-  </scene>
-  <scene id="SalaPinturas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/Sala_Pinturas.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Ayudante" x="1385" y="1039" scale="0.386822" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <scene id="MuseoHistoria" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/museogeografia.jpg" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="-2" y="1" width="102" height="490" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
+        <exit-look text="" />
+        <condition>
+          <equals var="objetosHistoria" value="3" />
+        </condition>
+        <post-effect>
+          <trigger-conversation idTarget="IrFisicas" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">Físicas</step>
+          </navigate>
+          <condition />
+        </post-effect>
+        <not-effect>
+          <speak-char idTarget="Ayudante">Necesitamos los libros y algunos bifaces</speak-char>
+          <condition />
+        </not-effect>
+      </exit>
+    </exits>
+    <objects>
+      <object-ref idTarget="Bifaz" x="645" y="286" scale="0.03476597" layer="0" hasInfluenceArea="no" />
+      <object-ref idTarget="bifaz2" x="349" y="194" scale="0.0345892" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="Libros" x="190" y="348" scale="0.1552179" layer="2" hasInfluenceArea="no" />
+    </objects>
+    <characters>
+      <character-ref idTarget="Ayudante" x="515" y="480" scale="0.1474478" orientation="2" layer="3" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <scene id="Informática" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -655,6 +737,20 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="720" y="565" width="475" height="350" hasInfluenceArea="no" idTarget="labFisicas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+        <post-effect>
+          <speak-char idTarget="Ayudante">Busquemos cosas que puedan ser útiles y larguémonos, que está empezando a anochecer y no se tú, pero yo no quiero ir por ahí con la única luz de una linterna.</speak-char>
+          <condition />
+          <activate flag="ItFisicas" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Ayudante" x="1552" y="1031" scale="0.4182943" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
   </scene>
   <scene id="labFisicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -665,8 +761,13 @@
     <name>
     </name>
     <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="5" y="0" width="370" height="1040" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" />
+      </exit>
+    </exits>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4436311753033, -3.72618822680772)" zoom="19" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4438763031497, -3.72767219641545)" zoom="15" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -692,7 +793,10 @@
       </condition>
     </map-element>
     <map-element targetId="bellasArtes" layer="0" scale="1" orientation="2">
-      <condition />
+      <condition>
+        <inactive flag="RecogerPinturas" />
+        <active flag="IrBellasArtes" />
+      </condition>
     </map-element>
     <map-element targetId="Físicas" layer="0" scale="1" orientation="2">
       <condition />
@@ -728,6 +832,18 @@
         <param name="Position">(40.4497909545898, -3.72539162635803)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">100</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Graffiti" layer="0" scale="0.4653524" orientation="2">
+      <condition>
+        <active flag="RecogerPinturas" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4414749145508, -3.7322211265564)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">350</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1257,6 +1373,43 @@
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="IrAHistoria">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>¿Ya está todo?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">¿Ya está todo?</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante"> Nuestro refugio lleva un tiempo investigando cómo se inició todo este “Apocalipsis”, y el jefe me ha pedido que recoja algunos libros. </speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Además, un chico nuevo nos dijo que en el museo había bifaces. Nos resultarían muy útiles.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Historia</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="IrFisicas">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Ayudante">¿Ya está todo? Pues vámonos.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Nuestra última parada es la facultad de Físicas.</speak-char>
+      <condition />
+      <speak-player>¿Qué buscamos allí?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Básicamente… algún arma arrojadiza o cosas por el estilo. Nunca está de más aumentar nuestras existencias en los tiempos que corren.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Apresurémonos, tampoco quiero que se nos haga de noche.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante"> Y no te preocupes por mí, estas muletas no harán que vaya más despacio. </speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
   <object id="Muletas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/image/muletas.png" />
@@ -1343,6 +1496,20 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Spray" />
+          <condition />
+          <generate-object idTarget="Spray" />
+          <condition />
+          <increment var="pinturas" value="1" />
+          <condition />
+          <activate flag="AcariciarGato" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="Pinturas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -1357,6 +1524,18 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Pinturas" />
+          <condition />
+          <generate-object idTarget="Pinturas" />
+          <condition />
+          <increment var="pinturas" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="bisturi" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -1410,7 +1589,12 @@
       </detailed>
     </description>
     <actions>
-      <examine needsGoTo="no" keepDistance="0" not-effects="no" />
+      <examine needsGoTo="no" keepDistance="0" not-effects="no">
+        <effect>
+          <speak-player>No creo que esto venga bien. Suficiente tengo como para cargar con ella todo el tiempo.</speak-player>
+          <condition />
+        </effect>
+      </examine>
     </actions>
   </object>
   <object id="Bifaz" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -1426,6 +1610,20 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Bifaz" />
+          <condition />
+          <generate-object idTarget="Bifaz" />
+          <condition />
+          <speak-player>Estas piedras deben de ser los bifaces. Los guardaré.</speak-player>
+          <condition />
+          <increment var="objetosHistoria" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="Alcohol" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -1503,6 +1701,20 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="bifaz2" />
+          <condition />
+          <generate-object idTarget="bifaz2" />
+          <condition />
+          <speak-player>Estas piedras deben de ser los bifaces. Los guardaré.</speak-player>
+          <condition />
+          <increment var="objetosHistoria" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="barricada" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -1692,9 +1904,115 @@
       </grab>
     </actions>
   </object>
+  <object id="Libros" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/books-clipart-png-715x715.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Libros" />
+          <condition />
+          <generate-object idTarget="Libros" />
+          <condition />
+          <speak-player>Si mal no recuerdo, estos son los títulos que Helena me había mencionado</speak-player>
+          <condition />
+          <increment var="objetosHistoria" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Spray2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/67468902-pintura-en-aerosol-puede-icono-de-estilo-de-dibujos-animados-aislado-en-el-fondo-blanco-artista-y-la.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Spray2" />
+          <condition />
+          <generate-object idTarget="Spray2" />
+          <condition />
+          <increment var="pinturas" value="1" />
+          <condition />
+        </effect>
+      </grab>
+      <use-with idTarget="Pinturas" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Spray2" />
+          <condition />
+        </effect>
+      </use-with>
+    </actions>
+  </object>
+  <object id="Spray3" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-aerosol-paint-aerosol-spray-tin-can-png-spray-can-image-5ab160b914fc25.329937021521574073086.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Spray3" />
+          <condition />
+          <generate-object idTarget="Spray3" />
+          <condition />
+          <increment var="pinturas" value="1" />
+          <condition />
+        </effect>
+      </grab>
+      <use-with idTarget="Pinturas" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Spray3" />
+          <condition />
+        </effect>
+      </use-with>
+    </actions>
+  </object>
   <atrezzoobject id="Señales">
     <resources name="No name">
       <asset type="image" uri="assets/image/car-smoke-5.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <atrezzoobject id="Graffiti">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/Graffiti_Refugio.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
