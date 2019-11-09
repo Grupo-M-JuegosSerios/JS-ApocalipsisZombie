@@ -566,6 +566,14 @@
         <condition>
           <equals var="objetosLabQuimicas" value="5" />
         </condition>
+        <post-effect>
+          <navigate navigation-type="Ordered">
+            <step locks="False">Físicas</step>
+          </navigate>
+          <condition />
+          <trigger-conversation idTarget="IrFisicas" />
+          <condition />
+        </post-effect>
         <not-effect>
           <speak-char idTarget="Ayudante">No podemos irnos sin los objetos para hacer la señal de humo.</speak-char>
           <condition />
@@ -1995,6 +2003,62 @@
         </effect>
       </use-with>
     </actions>
+  </object>
+  <object id="PenduloSimple" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Cables" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-nine-volt-battery-battery-holder-electrical-connec-5af56e01d82b36.1633199615260339218854.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Piladepetaca" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-battery-charger-car-rechargeable-battery-icon-vector-battery-5a805463cbac20.5893749115183596518343.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </object>
+  <object id="Palosdemadera" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
   </object>
   <atrezzoobject id="Señales">
     <resources name="No name">
