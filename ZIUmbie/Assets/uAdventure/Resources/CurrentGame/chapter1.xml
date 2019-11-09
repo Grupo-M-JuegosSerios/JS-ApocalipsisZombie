@@ -74,6 +74,26 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="DarBisturi" />
+          <active flag="DarMuletas" />
+          <inactive flag="TratoHombreCiu" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="EntregarObjetosMedicinaHelena" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="TratoHombreCiu" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="ConversacionIrAPorRecursos" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Gatito">
@@ -106,6 +126,15 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: AcariciarGato</documentation>
+        <effect>
+          <trigger-conversation idTarget="AcariciarGato" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="HombreCiu">
     <resources name="No name">
@@ -261,6 +290,21 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="ConversacionQuimico" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: DarObjetosSeñalHumoQuimico</documentation>
+        <effect>
+          <trigger-conversation idTarget="DarObjetosSeñalHumoQuimico" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Perrete">
     <resources name="No name">
@@ -292,6 +336,17 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="AcariciarPerro" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="AcariciarPerrete" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <scene id="Título" hideInventory="no" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -305,6 +360,10 @@
     <exits>
       <exit rectangular="yes" x="702" y="395" width="391" height="165" hasInfluenceArea="no" idTarget="Preinicio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <set-value var="objetosLabQuimicas" value="0" />
+          <condition />
+        </post-effect>
       </exit>
       <exit rectangular="yes" x="719" y="631" width="369" height="135" hasInfluenceArea="no" idTarget="Créditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
@@ -341,7 +400,7 @@
         <post-effect>
           <speak-player>¿Hay alguien por aquí?</speak-player>
           <condition />
-          <speak-char idTarget="Ayudante">¡Sí! ¡Ayúdame, estoy al lado de la antigua parada del autobús!</speak-char>
+          <speak-char idTarget="Ayudante">¡Sí! ¡Ayúdame, estoy al lado de la antigua parada del autobús! Cerca de la salida del antiguo metro.</speak-char>
           <condition />
         </post-effect>
       </exit>
@@ -361,16 +420,23 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Vendas" x="310" y="632" scale="0.07990333" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="TratoHombreCiu" />
+        </condition>
+      </object-ref>
+    </objects>
     <characters>
-      <character-ref idTarget="Ayudante" x="1443" y="1028" scale="0.4639588" orientation="0" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Ayudante" x="1443" y="1028" scale="0.4639588" orientation="0" layer="2" hasInfluenceArea="no" />
       <character-ref idTarget="HombreCiu" x="272" y="581" scale="0.1017398" orientation="0" layer="0" hasInfluenceArea="no">
         <condition>
-          <active flag="EncontrarHelena" />
+          <active flag="IrAMedicina" />
         </condition>
       </character-ref>
     </characters>
     <active-areas>
-      <active-area id="CompraRecuros" rectangular="yes" x="225" y="585" width="150" height="176" hasInfluenceArea="no" behaviour="normal">
+      <active-area id="CompraRecuros" rectangular="yes" x="220" y="650" width="150" height="111" hasInfluenceArea="no" behaviour="normal">
         <description>
           <name>
           </name>
@@ -407,16 +473,123 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="469" y="283" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="469" y="283" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="PastillasEncontradas" />
+          <active flag="MuletasEncontradas" />
+          <active flag="PunteroEncontrado" />
+          <active flag="BisturiEncontrado" />
+        </condition>
+        <post-effect>
+          <activate flag="IrAMedicina" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">metroCiu</step>
+          </navigate>
+          <condition />
+          <speak-player>Ya tengo los objetos. Voy a volver a la antigua boca del metro para entregárselos</speak-player>
+          <condition />
+        </post-effect>
+        <not-effect>
+          <speak-player>Debería encontrar más recursos para ayudar a la chica.</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <objects>
       <object-ref idTarget="Muletas" x="577" y="461" scale="0.1443188" layer="0" hasInfluenceArea="no" />
-      <object-ref idTarget="Vendas" x="298" y="406" scale="0.08855415" layer="1" hasInfluenceArea="no" />
-      <object-ref idTarget="sillaDeRuedas" x="898" y="636" scale="0.204157" layer="3" hasInfluenceArea="no" />
-      <object-ref idTarget="Alcohol" x="90" y="459" scale="0.08489117" layer="2" hasInfluenceArea="no" />
+      <object-ref idTarget="sillaDeRuedas" x="898" y="636" scale="0.204157" layer="5" hasInfluenceArea="no" />
+      <object-ref idTarget="bisturi" x="165" y="415" scale="0.02850303" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="Huesos" x="871" y="439" scale="0.08324459" layer="2" hasInfluenceArea="no" />
+      <object-ref idTarget="punteroLaser" x="116" y="671" scale="0.08142237" layer="3" hasInfluenceArea="no" />
+      <object-ref idTarget="Pastillas" x="293" y="402" scale="0.01498249" layer="4" hasInfluenceArea="no" />
     </objects>
+  </scene>
+  <scene id="Químicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/FacultadQuimicas.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="844" y="700" width="225" height="290" hasInfluenceArea="no" idTarget="LabQuímicas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="ConversacionQuimico" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Perrete" x="641" y="1002" scale="0.06715322" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Ayudante" x="1505" y="1039" scale="0.3236638" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="LabQuímicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/LaboQuimica.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="-15" y="980" width="1678" height="256" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <equals var="objetosLabQuimicas" value="5" />
+        </condition>
+        <not-effect>
+          <speak-char idTarget="Ayudante">No podemos irnos sin los objetos para hacer la señal de humo.</speak-char>
+          <condition />
+        </not-effect>
+      </exit>
+    </exits>
+    <objects>
+      <object-ref idTarget="mechero" x="1499" y="930" scale="0.1124581" layer="6" hasInfluenceArea="no" />
+      <object-ref idTarget="Telas" x="1122" y="703" scale="0.1743464" layer="1" hasInfluenceArea="no" />
+      <object-ref idTarget="Alcohol" x="278" y="736" scale="0.1734302" layer="2" hasInfluenceArea="no" />
+      <object-ref idTarget="LiquidoInflamable" x="687" y="619" scale="0.07743637" layer="3" hasInfluenceArea="no" />
+      <object-ref idTarget="Probeta" x="1492" y="707" scale="0.1563655" layer="4" hasInfluenceArea="no" />
+    </objects>
+    <characters>
+      <character-ref idTarget="Quimico" x="1295" y="655" scale="0.1289867" orientation="2" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Ayudante" x="887" y="1224" scale="0.3221636" orientation="2" layer="5" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="BellasArtes" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Bellas-Artes-UCM.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="103" y="325" width="909" height="619" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+    <characters>
+      <character-ref idTarget="Gatito" x="1198" y="958" scale="0.078462" orientation="2" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Ayudante" x="1596" y="1038" scale="0.3444654" orientation="2" layer="0" hasInfluenceArea="no" />
+    </characters>
+  </scene>
+  <scene id="PasilloBellasArtes" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
   </scene>
   <scene id="Historia" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -433,41 +606,6 @@
       </exit>
     </exits>
   </scene>
-  <scene id="MuseoHistoria" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="BellasArtes" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/Bellas-Artes-UCM.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="103" y="325" width="1611" height="600" hasInfluenceArea="no" idTarget="SalaPinturas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
-  <scene id="PasilloBellasArtes" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
   <scene id="SalaPinturas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -478,21 +616,11 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <scene id="Químicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="MuseoHistoria" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/background/FacultadQuimicas.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="LabQuímicas" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/LaboQuimica.jpg" />
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
     </resources>
     <name>
     </name>
@@ -538,9 +666,11 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.443436227326, -3.72649401491774)" zoom="19" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4436311753033, -3.72618822680772)" zoom="19" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
-      <condition />
+      <condition>
+        <inactive flag="EncontrarHelena" />
+      </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4434127807617, -3.7269594669342)</param>
         <param name="Rotation">0</param>
@@ -551,13 +681,14 @@
     </map-element>
     <map-element targetId="metroCiu" layer="0" scale="1" orientation="2">
       <condition>
-        <active flag="EncontrarHelena" />
         <active flag="IrAMedicina" />
+        <inactive flag="TratoHombreCiu" />
       </condition>
     </map-element>
     <map-element targetId="Medicina" layer="0" scale="1" orientation="2">
       <condition>
         <active flag="EncontrarHelena" />
+        <inactive flag="IrAMedicina" />
       </condition>
     </map-element>
     <map-element targetId="bellasArtes" layer="0" scale="1" orientation="2">
@@ -573,7 +704,33 @@
       <condition />
     </map-element>
     <map-element targetId="Quimicas" layer="0" scale="1" orientation="2">
-      <condition />
+      <condition>
+        <equals var="objetosLabQuimicas" value="0" />
+      </condition>
+    </map-element>
+    <map-element targetId="Ayudante" layer="0" scale="0.2203846" orientation="2">
+      <condition>
+        <either>
+          <active flag="IrBellasArtes" />
+          <active flag="IrQuimicas" />
+        </either>
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(697.3, 606.4)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Señales" layer="0" scale="0.6480137" orientation="2">
+      <condition>
+        <equals var="objetosLabQuimicas" value="5" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4497909545898, -3.72539162635803)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">100</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
     </map-element>
   </map-scene>
   <map-scene id="Preinicio" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436456982474, -3.72700374358588)" zoom="19" start="no">
@@ -602,6 +759,11 @@
         <effect>
           <trigger-zoned-scene idTarget="MetroCiu" x="1024" y="1023" zoneId="metroCiu" transitionTime="0" transitionType="0" />
           <condition />
+          <speak-player>Voy a abrir mi mochila y darle a la chica todos los objetos que he encontrado</speak-player>
+          <condition>
+            <active flag="IrAMedicina" />
+            <inactive flag="DarobjetosMedicinaAHelena" />
+          </condition>
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
@@ -661,8 +823,11 @@
     </geometries>
     <actions>
       <enter-action>
+        <condition>
+          <active flag="IrBellasArtes" />
+        </condition>
         <effect>
-          <trigger-zoned-scene idTarget="BellasArtes" x="400" y="450" zoneId="metroCiu" transitionTime="0" transitionType="0" />
+          <trigger-zoned-scene idTarget="BellasArtes" x="400" y="450" zoneId="bellasArtes" transitionTime="0" transitionType="0" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
@@ -689,7 +854,15 @@
         </Polygon>
       </geometry>
     </geometries>
-    <actions />
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="Físicas1" x="907" y="771" zoneId="Físicas" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <geoelement id="Historia">
     <description>
@@ -711,7 +884,15 @@
         </Polygon>
       </geometry>
     </geometries>
-    <actions />
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="Historia" x="907" y="771" zoneId="Historia" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <geoelement id="Informatica">
     <description>
@@ -733,7 +914,15 @@
         </Polygon>
       </geometry>
     </geometries>
-    <actions />
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-zoned-scene idTarget="Informática" x="907" y="771" zoneId="Informatica" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <geoelement id="Quimicas">
     <description>
@@ -755,7 +944,18 @@
         </Polygon>
       </geometry>
     </geometries>
-    <actions />
+    <actions>
+      <enter-action>
+        <condition>
+          <active flag="IrQuimicas" />
+        </condition>
+        <effect>
+          <trigger-zoned-scene idTarget="Químicas" x="907" y="771" zoneId="Quimicas" transitionTime="0" transitionType="0" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <geoelement id="PuntoInicio">
     <description>
@@ -829,13 +1029,23 @@
       <condition />
       <speak-player>¿Eso es sangre?</speak-player>
       <condition />
-      <speak-char idTarget="Ayudante">No, es kétchup… ¡Pues claro que es sangre, genia!. Creo que al caer me he clavado algo metálico en la pierna. No es muy profundo, pero sangra muchísimo. </speak-char>
+      <speak-char idTarget="Ayudante">No, es kétchup… ¡Pues claro que es sangre, genia!.  </speak-char>
       <condition />
-      <speak-char idTarget="Ayudante">Escucha, necesito tu ayuda. Tengo que detener esta hemorragia o creo que voy a morir desangrada. En la antigua facultad de medicina aún quedan algunos bisturís, por no hablar de vendas. Puede que incluso muletas. No está muy lejos. Por favor, ayúdame.</speak-char>
+      <speak-char idTarget="Ayudante">Creo que al caer me he clavado algo metálico en la pierna.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">No es muy profundo, pero sangra muchísimo. </speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Escucha, necesito tu ayuda.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Tengo que detener esta hemorragia o creo que voy a morir desangrada. En la antigua facultad de medicina aún quedan algunos bisturís, por no hablar de vendas. Puede que incluso muletas.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">No está muy lejos. Por favor, ayúdame.</speak-char>
       <condition />
       <speak-player>¿Y yo qué gano a cambio?</speak-player>
       <condition />
-      <speak-char idTarget="Ayudante">Oh, ¿en serio? Agh, supongo que a estas alturas el altruismo ya no existe. Vale, mi refugio no está demasiado lejos. Estamos muy bien equipados, y te veo algo sola. Te llevaré, si así lo quieres.</speak-char>
+      <speak-char idTarget="Ayudante">Oh, ¿en serio? Agh, supongo que a estas alturas el altruismo ya no existe.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante"> Vale, mi refugio no está demasiado lejos. Estamos muy bien equipados, y te veo algo sola. Te llevaré, si así lo quieres.</speak-char>
       <condition />
       <speak-player>Está bien, lo haré.</speak-player>
       <condition />
@@ -848,6 +1058,200 @@
           <navigate navigation-type="Ordered">
             <step locks="False">Medicina</step>
           </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="EntregarObjetosMedicinaHelena">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Esto es todo lo que he encontrado.</speak-player>
+      <condition />
+      <speak-char idTarget="HombreCiu">Disculpen, niñas, os veo en apuros. ¿Necesitáis unas vendas?</speak-char>
+      <condition />
+      <speak-player>¡Sí! Es lo único que no he encontrado en medicina.</speak-player>
+      <condition />
+      <speak-char idTarget="HombreCiu"> Bueno, supongo que podríamos hacer un trueque… ¿tienes algo que ofrecer?</speak-char>
+      <condition />
+      <speak-player>¿Qué buscas exactamente?</speak-player>
+      <condition />
+      <speak-char idTarget="HombreCiu">Estoy abierto a propuestas.</speak-char>
+      <condition />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-player>¿Qué hay de unas medicinas? Las he sacado de la Facultad de Medicina.</speak-player>
+      <condition />
+      <speak-char idTarget="HombreCiu">Vale, tenemos un trato.</speak-char>
+      <condition />
+      <speak-char idTarget="HombreCiu">Dame las pastillas y podrás coger las vendas.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <speak-player>Voy a buscar en la mochila para darle la pastilla.</speak-player>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="ConversacionIrAPorRecursos">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Toma, véndate esa herida.</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Muchas gracias. De verdad.</speak-char>
+      <condition />
+      <speak-player>¿Cumplirás tu parte del trato?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Por supuesto, pero antes tendrás que acompañarme a recoger unos cuantos materiales.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Perdona, pero los necesitamos.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante"> Por cierto, me llamo Helena.</speak-char>
+      <condition />
+      <speak-player>Un placer. ¿Qué necesitas recoger?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Uf, supongo que podemos empezar por hacer una señal.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Tenía la misión de informar de alguna forma que en esta zona aún hay gente viva.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Había pensado en dos opciones.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">En bellas artes hay sprays y pinturas que podríamos utilizar para dejar un mensaje, y en química siguen guardados ciertos reactivos con los que tal vez podamos hacer señales de humo. ¿Qué opinas?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="386" editor-y="50" x="386" y="50">
+      <speak-player>Me gusta el plan de Bellas Artes.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Vamos a Químicas. </speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="606" editor-y="50">
+      <speak-char idTarget="Ayudante">Pues venga, en marcha</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="IrBellasArtes" />
+          <condition />
+          <trigger-scene idTarget="CIU" x="907" y="771" transitionTime="0" transitionType="0" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">bellasArtes</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="606" editor-y="244">
+      <speak-char idTarget="Ayudante">Pues venga, en marcha</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="IrQuimicas" />
+          <condition />
+          <trigger-scene idTarget="CIU" x="907" y="771" transitionTime="0" transitionType="0" />
+          <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">Quimicas</step>
+          </navigate>
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="AcariciarPerrete">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>¡Ay! Hola perrete</speak-player>
+      <condition />
+      <speak-player>Pero que monada eres.</speak-player>
+      <condition />
+      <speak-char idTarget="Perrete">¡Guau! ¡Guau!</speak-char>
+      <condition />
+      <speak-player>¿Me dejas darte mimitos?</speak-player>
+      <condition />
+      <speak-char idTarget="Perrete">Guau</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Es adorable pero como siga ladrando van a venir zombies</speak-char>
+      <condition />
+      <speak-player>No ladres chiquitín.</speak-player>
+      <condition />
+      <speak-char idTarget="Perrete">...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="AcariciarPerro" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="ConversacionQuimico">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Quimico">¡¿Quién anda ahí?!</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">¡No nos lance la probeta, por favor!</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Somos del refugio de Ciudad Universitaria, no se preocupe.</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Venimos a recoger cosas para poder hacer señales de humo.</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">¿Señales de humo? ¿Con qué objetivo?</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Queremos que otros supervivientes sepan que aún queda gente viva aquí. Por si necesitan ayuda.</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">...</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Tanta bondad podría volverse en vuestra contra…</speak-char>
+      <condition />
+      <speak-player>¿Es… Era usted profesor o algo así? ¿Puede decirnos qué necesitamos?</speak-player>
+      <condition />
+      <speak-char idTarget="Quimico">*Suspiro* Está bien, pero espero que me dejéis al margen de los resultados que obtengáis con esto. </speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Y sí, joven. Fui profesor de química en este mismo centro.</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Tendréis que coger una probeta, líquido inflamable, un mechero Bunsen. </speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Una vez los tengáis, traédmelos y yo os lo prepararé todo.</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="DarObjetosSeñalHumoQuimico">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Ya tenemos todos los objetos</speak-player>
+      <condition />
+      <speak-char idTarget="Quimico">Maravilloso...</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Me voy fuera a ver que puedo hacer.</speak-char>
+      <condition />
+      <speak-char idTarget="Quimico">Como ya os he dicho, yo no tengo nada que ver con esto.</speak-char>
+      <condition />
+      <speak-player>No se preocupe, no diremos nada.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="DarObjetosQuimico" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="AcariciarGato">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player>Hola pequeño.</speak-player>
+      <condition />
+      <speak-player>¿Qué haces aquí solito?</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Deja de achucharle que seguro que tiene pulgas.</speak-char>
+      <condition />
+      <speak-player>Una pulga es lo mejor que me podría pasar frente a los monstruos que andan por aquí.</speak-player>
+      <condition />
+      <speak-char idTarget="Ayudante">Vamos dentro anda...</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="AcariciarGato" />
           <condition />
         </effect>
       </end-conversation>
@@ -871,8 +1275,24 @@
         <effect>
           <consume-object idTarget="Muletas" />
           <condition />
+          <activate flag="DarMuletas" />
+          <condition />
+          <speak-char idTarget="Ayudante">¡Unas muletas! Menos mal que aún quedaban.</speak-char>
+          <condition />
         </effect>
       </give-to>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Muletas" />
+          <condition />
+          <generate-object idTarget="Muletas" />
+          <condition />
+          <activate flag="MuletasEncontradas" />
+          <condition />
+          <speak-player>La chica ha dicho que no podía moverse, tal vez esto le venga bien.</speak-player>
+          <condition />
+        </effect>
+      </grab>
     </actions>
   </object>
   <object id="Vendas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -888,6 +1308,27 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="DarPastillasHombre" />
+        </condition>
+        <effect>
+          <remove-element idTarget="Vendas" />
+          <condition />
+          <generate-object idTarget="Vendas" />
+          <condition />
+        </effect>
+      </grab>
+      <give-to idTarget="Ayudante" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Vendas" />
+          <condition />
+          <activate flag="DarVendas" />
+          <condition />
+        </effect>
+      </give-to>
+    </actions>
   </object>
   <object id="Spray" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -930,6 +1371,30 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <give-to idTarget="Ayudante" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="bisturi" />
+          <condition />
+          <activate flag="DarBisturi" />
+          <condition />
+          <speak-char idTarget="Ayudante">¡Gracias! Va a ser desagradable usarlo pero es necesario</speak-char>
+          <condition />
+        </effect>
+      </give-to>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="bisturi" />
+          <condition />
+          <generate-object idTarget="bisturi" />
+          <condition />
+          <speak-player>¡Justo lo que buscaba!</speak-player>
+          <condition />
+          <activate flag="BisturiEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="sillaDeRuedas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -944,6 +1409,9 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <examine needsGoTo="no" keepDistance="0" not-effects="no" />
+    </actions>
   </object>
   <object id="Bifaz" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
@@ -972,10 +1440,30 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <use-with idTarget="Telas" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Alcohol" />
+          <condition />
+        </effect>
+      </use-with>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Alcohol" />
+          <condition />
+          <generate-object idTarget="Alcohol" />
+          <condition />
+          <increment var="objetosLabQuimicas" value="1" />
+          <condition />
+          <speak-player>Supongo que este no es del tipo que se puede beber.</speak-player>
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="Huesos" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/5a220e95f1ac43.9876158115121813979899.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -986,24 +1474,25 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Huesos" />
+          <condition />
+          <generate-object idTarget="Huesos" />
+          <condition />
+          <speak-player>¿Un hueso?
+ Probablemente no sea necesario, pero tengo la sensación de que debería cogerlo.</speak-player>
+          <condition />
+          <activate flag="HuesoEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <object id="bifaz2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
-      <asset type="icon" uri="assets/special/EmptyIcon.png" />
-    </resources>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-  </object>
-  <object id="cerillas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
-    <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
+      <asset type="image" uri="assets/image/Bifaz_1.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -1029,20 +1518,6 @@
       </detailed>
     </description>
   </object>
-  <object id="elementoQuimico" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
-    <resources name="No name">
-      <asset type="image" uri="assets/special/EmptyImage.png" />
-      <asset type="icon" uri="assets/special/EmptyIcon.png" />
-    </resources>
-    <description>
-      <name>
-      </name>
-      <brief>
-      </brief>
-      <detailed>
-      </detailed>
-    </description>
-  </object>
   <object id="punteroLaser" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
       <asset type="image" uri="assets/image/kisspng-flashlight-laser-pointers-lamp-5b0143d1092714.9522268415268095530375.png" />
@@ -1056,10 +1531,24 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="punteroLaser" />
+          <condition />
+          <generate-object idTarget="punteroLaser" />
+          <condition />
+          <speak-player>No ocupa demasiado espacio, así que me lo quedaré por si acaso.</speak-player>
+          <condition />
+          <activate flag="PunteroEncontrado" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
-  <object id="vendas2" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+  <object id="Pastillas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
     <resources name="No name">
-      <asset type="image" uri="assets/image/vendas.png" />
+      <asset type="image" uri="assets/image/5a3765b5f38c21.0396795615135799579976.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
@@ -1070,10 +1559,142 @@
       <detailed>
       </detailed>
     </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Pastillas" />
+          <condition />
+          <generate-object idTarget="Pastillas" />
+          <condition />
+          <speak-player>Supongo que esto será útil</speak-player>
+          <condition />
+          <activate flag="PastillasEncontradas" />
+          <condition />
+        </effect>
+      </grab>
+      <give-to idTarget="HombreCiu" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <consume-object idTarget="Pastillas" />
+          <condition />
+          <activate flag="DarPastillasHombre" />
+          <condition />
+          <activate flag="TratoHombreCiu" />
+          <condition />
+        </effect>
+      </give-to>
+    </actions>
+  </object>
+  <object id="Telas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/Telas.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Telas" />
+          <condition />
+          <generate-object idTarget="Telas" />
+          <condition />
+          <increment var="objetosLabQuimicas" value="1" />
+          <condition />
+          <speak-player>Si él dice que las necesita...</speak-player>
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="mechero" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-bunsen-burner-laboratory-science-test-tubes-chemis-honeydew-5acaf7cd4e2ce6.0075451115232511493202.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="mechero" />
+          <condition />
+          <generate-object idTarget="mechero" />
+          <condition />
+          <increment var="objetosLabQuimicas" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="LiquidoInflamable" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-laboratory-flask-chemistry-erlenmeyer-flask-clip-a-medical-chemistry-chemistry-science-5a86d86a3e2341.5907735915187866662545.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="LiquidoInflamable" />
+          <condition />
+          <generate-object idTarget="LiquidoInflamable" />
+          <condition />
+          <increment var="objetosLabQuimicas" value="1" />
+          <condition />
+          <speak-player>Esto tiene pinta de ser lo que el profesor nos ha pedido...</speak-player>
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Probeta" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-computer-icons-encapsulated-postscript-test-tube-5adfc2230bcb04.1776453815246136670483.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Probeta" />
+          <condition />
+          <generate-object idTarget="Probeta" />
+          <condition />
+          <increment var="objetosLabQuimicas" value="1" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
   </object>
   <atrezzoobject id="Señales">
     <resources name="No name">
-      <asset type="image" uri="assets/image/Señales de humo.png" />
+      <asset type="image" uri="assets/image/car-smoke-5.png" />
       <asset type="icon" uri="assets/special/EmptyIcon.png" />
     </resources>
     <description>
