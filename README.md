@@ -17,7 +17,7 @@ El juego transcurre en un apocalipsis zombie, donde la protagonista va en busca 
 
 **Cantidades**: 
 
-|**Escenarios:** 8 |**Objetos**: 23|**Personajes:**6|
+|**Escenarios:** 8 |**Objetos**: 23|**Personajes:** 6|
 |--|--|--|
 
 
