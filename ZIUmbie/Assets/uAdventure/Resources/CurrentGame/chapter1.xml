@@ -602,11 +602,11 @@
         <not-effect>
           <speak-char idTarget="Ayudante">No podemos irnos sin los objetos para hacer la señal de humo.</speak-char>
           <condition>
-            <less-equals-than var="objetosLabQuimicas" value="3" />
+            <less-equals-than var="objetosLabQuimicas" value="4" />
           </condition>
           <speak-player>Vamos a darle al químico todos los objetos para que haga la señal de humo.</speak-player>
           <condition>
-            <equals var="objetosLabQuimicas" value="4" />
+            <equals var="objetosLabQuimicas" value="5" />
             <inactive flag="DarObjetosQuimico" />
           </condition>
         </not-effect>
@@ -622,7 +622,7 @@
     <characters>
       <character-ref idTarget="Quimico" x="1295" y="655" scale="0.1289867" orientation="2" layer="0" hasInfluenceArea="no">
         <condition>
-          <active flag="DarObjetosQuimico" />
+          <inactive flag="DarObjetosQuimico" />
         </condition>
       </character-ref>
       <character-ref idTarget="Ayudante" x="887" y="1224" scale="0.3221636" orientation="2" layer="5" hasInfluenceArea="no" />
@@ -705,8 +705,6 @@
         <post-effect>
           <speak-char idTarget="Ayudante">Rápido, encuentra los bifaces y los libros que te he mencionado, y continuemos.</speak-char>
           <condition />
-          <activate flag="IrHistoria" />
-          <condition />
         </post-effect>
       </exit>
     </exits>
@@ -767,26 +765,6 @@
     <characters>
       <character-ref idTarget="Ayudante" x="515" y="480" scale="0.1474478" orientation="2" layer="3" hasInfluenceArea="no" />
     </characters>
-  </scene>
-  <scene id="Informática" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/Informática - UCM.jpg" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="HallInformática" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
   </scene>
   <scene id="Físicas1" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -873,7 +851,29 @@
       <character-ref idTarget="Ayudante" x="511" y="1035" scale="0.3381595" orientation="2" layer="4" hasInfluenceArea="no" />
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4509787996785, -3.73450040817943)" zoom="16" start="no">
+  <scene id="Informática" hideInventory="no" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Informática - UCM.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <characters>
+      <character-ref idTarget="Ayudante" x="1431" y="1032" scale="0.2638645" orientation="2" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="AyudarPerrete" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Jefe" x="309" y="1035" scale="0.3087128" orientation="2" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="AyudarPerrete" />
+        </condition>
+      </character-ref>
+    </characters>
+  </scene>
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4509559115295, -3.73447823520403)" zoom="16" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -966,11 +966,12 @@
       <condition>
         <active flag="IrBellasArtes" />
         <active flag="ItFisicas" />
+        <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4493064880371, -3.72850298881531)</param>
+        <param name="Position">(40.4492492675781, -3.72844338417053)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">100</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -989,11 +990,12 @@
       <condition>
         <active flag="IrQuimicas" />
         <active flag="IrHistoria" />
+        <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4494285583496, -3.73450040817261)</param>
+        <param name="Position">(40.449405670166, -3.73447823524475)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">100</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1012,12 +1014,46 @@
     <map-element targetId="Perrete" layer="0" scale="0.1554024" orientation="2">
       <condition>
         <active flag="EncontrarHorda" />
-        <inactive flag="DistraerZombies" />
         <active flag="IrQuimicas" />
+        <inactive flag="UsarDistraccion" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(503.7, 628.7)</param>
         <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Barricada" layer="0" scale="0.4060455" orientation="2">
+      <condition>
+        <active flag="BarricadaHecha" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4515533447266, -3.73432278633118)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.2566461" orientation="2">
+      <condition>
+        <active flag="BarricadaHecha" />
+        <inactive flag="MeHanMordido" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
+        <param name="Position">(191.4, 604.0)</param>
+        <param name="Rotation">0</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Perrete" layer="0" scale="0.06812874" orientation="2">
+      <condition>
+        <active flag="DecisionPerro" />
+      </condition>
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4520416259766, -3.7346498966217)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
   </map-scene>
@@ -1198,11 +1234,11 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="25">
+      <geometry influence="10">
         <Polygon>
           <exterior>
             <LinearRing>
-              <posList>40.4525194928579 -3.73398589512157 40.4526827735058 -3.73285864439619 40.4530894740371 -3.73292301741248 40.4529833423034 -3.73411464115429</posList>
+              <posList>40.452503164844 -3.73398589512157 40.4526664454919 -3.73285864439619 40.4530731460232 -3.73292301741248 40.4529670142895 -3.73411464115429</posList>
             </LinearRing>
           </exterior>
         </Polygon>
@@ -1213,6 +1249,22 @@
         <effect>
           <trigger-zoned-scene idTarget="Informática" x="907" y="771" zoneId="Informatica" transitionTime="0" transitionType="0" />
           <condition />
+          <trigger-conversation idTarget="LlegarInformatica-BellasArtes" />
+          <condition>
+            <active flag="IrBellasArtes" />
+          </condition>
+          <trigger-conversation idTarget="LlegarInformática-Barricada" />
+          <condition>
+            <active flag="MeHanMordido" />
+          </condition>
+          <trigger-conversation idTarget="LlegarInformatica-dejarPerro" />
+          <condition>
+            <active flag="AbandonarPerrete" />
+          </condition>
+          <trigger-conversation idTarget="LlegarInformatica-SalvarPerro" />
+          <condition>
+            <active flag="AyudarPerrete" />
+          </condition>
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
@@ -1300,7 +1352,7 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="100">
+      <geometry influence="130">
         <Point>
           <pos>40.4508178799277 -3.72845402351042</pos>
         </Point>
@@ -1310,7 +1362,7 @@
       <enter-action>
         <condition>
           <active flag="IrBellasArtes" />
-          <active flag="ItFisicas" />
+          <active flag="IrHaciaElRefugio" />
         </condition>
         <effect>
           <trigger-conversation idTarget="Horda1" />
@@ -1338,16 +1390,21 @@
     </geometries>
     <actions>
       <enter-action>
-        <condition>
-          <active flag="IrQuimicas" />
-          <active flag="IrHistoria" />
-        </condition>
         <effect>
           <trigger-conversation idTarget="Horda1" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
+      <exit-action>
+        <effect>
+          <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
+          <condition />
+          <deactivate flag="DistraerZombies" />
+          <condition />
+        </effect>
+        <only-from-inside>True</only-from-inside>
+      </exit-action>
     </actions>
   </geoelement>
   <graph-conversation id="InicioJuego">
@@ -1731,6 +1788,8 @@
           <condition />
           <activate flag="DistraerZombies" />
           <condition />
+          <activate flag="UsarDistraccion" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1775,8 +1834,12 @@
       <speak-char idTarget="Ayudante">Espera. ¿Ese no es el perro? ¡Viene hacia aquí y los zombies van a atraparlo! </speak-char>
       <condition />
       <child nodeindex="4" />
+      <effect>
+        <activate flag="DecisionPerro" />
+        <condition />
+      </effect>
     </dialogue-node>
-    <dialogue-node nodeindex="3" editor-x="677" editor-y="244">
+    <dialogue-node nodeindex="3" editor-x="598" editor-y="264">
       <speak-char idTarget="Ayudante">Es una gran idea. Te ayudaré</speak-char>
       <condition />
       <speak-player>¿Qué estás diciendo? No podrás hacer nada con esas muletas. Entra dentro del refugio.</speak-player>
@@ -1785,15 +1848,11 @@
       <condition />
       <speak-player>¡Sí, anda corre!</speak-player>
       <condition />
-      <speak-player>Joder, los zombies están muy cerca. Tengo que darme prisa en montar la barricada.</speak-player>
-      <condition />
-      <speak-player>...</speak-player>
-      <condition />
-      <speak-player>Ya casi...</speak-player>
-      <condition />
-      <speak-player> ¡Listo! </speak-player>
-      <condition />
       <child nodeindex="5" />
+      <effect>
+        <activate flag="ConstruyendoBarricada" />
+        <condition />
+      </effect>
     </dialogue-node>
     <option-node nodeindex="4" preListening="yes" editor-x="960" editor-y="50" x="960" y="50">
       <speak-player> Voy a salvarlo.</speak-player>
@@ -1803,7 +1862,42 @@
       <condition />
       <child nodeindex="7" />
     </option-node>
-    <dialogue-node nodeindex="5" editor-x="960" editor-y="382">
+    <dialogue-node nodeindex="5" editor-x="883" editor-y="310">
+      <speak-player>Joder, los zombies están muy cerca. Tengo que darme prisa en montar la barricada.</speak-player>
+      <condition />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-player>Ya casi...</speak-player>
+      <condition />
+      <speak-player> ¡Listo! </speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <activate flag="BarricadaHecha" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="1247" editor-y="0">
+      <speak-player>Uf, justo a tiempo. Menos mal. Volvamos al refugio.</speak-player>
+      <condition />
+      <speak-player>Voy a correr al refugio.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="AyudarPerrete" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1261" editor-y="263">
+      <end-conversation>
+        <effect>
+          <activate flag="AbandonarPerrete" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1136" editor-y="514">
       <speak-player>Genial, ahora tendría que darme prisa y… ¡AH!</speak-player>
       <condition />
       <speak-char idTarget="Zombie"> RAAUUHRRG</speak-char>
@@ -1814,39 +1908,12 @@
       <condition />
       <speak-player> Tengo que correr al refugio. Allí podrán ayudarme.</speak-player>
       <condition />
-      <end-conversation />
-    </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="1247" editor-y="0">
-      <speak-player>Uf, justo a tiempo. Menos mal. Volvamos al refugio.</speak-player>
-      <condition />
-      <speak-player>Espera…</speak-player>
-      <condition />
-      <speak-player> ¡¿?! </speak-player>
-      <condition />
-      <speak-player>¡He tardado demasiado y lo han tapiado para protegerse de la horda! </speak-player>
-      <condition />
-      <end-conversation />
-    </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="1365" editor-y="199">
-      <speak-char idTarget="Ayudante">¡Cierra la puerta detrás de ti! ¡Rápido! </speak-char>
-      <condition />
-      <speak-char idTarget="Jefe">Helena, por fin has vuelto. ¿Se puede saber por qué estás armando tanto alboroto? ¿Y quién es tu amiga?</speak-char>
-      <condition />
-      <speak-char idTarget="Ayudante">Eso no importa ahora. ¡Tenemos una horda de zombies casi encima!</speak-char>
-      <condition />
-      <speak-char idTarget="Jefe">Espera, ¿qué? </speak-char>
-      <condition />
-      <speak-player>Creo que ya se pueden ver desde la ventana.</speak-player>
-      <condition />
-      <speak-char idTarget="Jefe">...</speak-char>
-      <condition />
-      <speak-char idTarget="Jefe">Maldita sea, es cierto.</speak-char>
-      <condition />
-      <speak-player> Recoged vuestras cosas. Tenemos que salir de aquí.</speak-player>
-      <condition />
-      <speak-player>¡Los zombies han invadido el refugio! Tenemos que marcharnos.</speak-player>
-      <condition />
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <activate flag="MeHanMordido" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="LlegarInformática-Barricada">
@@ -1875,12 +1942,12 @@
       <condition />
       <speak-char idTarget="Jefe">Debo pedirte que te marches. Lo siento, de verdad.</speak-char>
       <condition />
-      <child nodeindex="1" />
-    </dialogue-node>
-    <dialogue-node nodeindex="1" editor-x="372" editor-y="50">
-      <speak-player> ¡He sido convertida! </speak-player>
-      <condition />
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="TeHanMordido" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="LlegarInformatica-BellasArtes">
@@ -1901,12 +1968,54 @@
       <condition />
       <speak-char idTarget="Jefe">Bienvenida a nuestro refugio.</speak-char>
       <condition />
-      <child nodeindex="1" />
-    </dialogue-node>
-    <dialogue-node nodeindex="1" editor-x="435" editor-y="94">
       <speak-player>Por fin estoy a salvo.</speak-player>
       <condition />
-      <end-conversation />
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="HasLlegadoAlRefugio" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="LlegarInformatica-dejarPerro">
+    <dialogue-node nodeindex="0" editor-x="48" editor-y="50">
+      <speak-char idTarget="Ayudante">¡Entrad dentro! ¡Rápido! </speak-char>
+      <condition />
+      <speak-char idTarget="Jefe">Helena, por fin has vuelto. ¿Se puede saber por qué estás armando tanto alboroto? ¿Y quién es tu amiga?</speak-char>
+      <condition />
+      <speak-char idTarget="Ayudante">Eso no importa ahora. ¡Tenemos una horda de zombies casi encima!</speak-char>
+      <condition />
+      <speak-char idTarget="Jefe">Espera, ¿qué? </speak-char>
+      <condition />
+      <speak-player>Creo que ya se pueden ver desde la ventana.</speak-player>
+      <condition />
+      <speak-char idTarget="Jefe">...</speak-char>
+      <condition />
+      <speak-char idTarget="Jefe">Maldita sea, es cierto.</speak-char>
+      <condition />
+      <speak-player> Recoged vuestras cosas. Tenemos que salir de aquí.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="RefugioInvadido" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="LlegarInformatica-SalvarPerro">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-player> ¡¿?! </speak-player>
+      <condition />
+      <speak-player>¡He tardado demasiado y lo han tapiado para protegerse de la horda! </speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-cutscene idTarget="DemasiadoTarde" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <object id="Muletas" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2353,12 +2462,6 @@
       </detailed>
     </description>
     <actions>
-      <use-with idTarget="Telas" needsGoTo="yes" keepDistance="35" not-effects="no">
-        <effect>
-          <consume-object idTarget="Alcohol" />
-          <condition />
-        </effect>
-      </use-with>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
           <remove-element idTarget="Alcohol" />
@@ -2677,4 +2780,54 @@
       </detailed>
     </description>
   </atrezzoobject>
+  <atrezzoobject id="Barricada">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/kisspng-barricade-barbed-wire-sandbag-fence-barbed-wire-material-png-5ad7cb27e3c075.5732824015240916879329.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
+  <slidescene id="RefugioInvadido" start="no" idTarget="Créditos" destinyX="-2147483648" destinyY="2147483647" transitionTime="0" transitionType="5" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="TeHanMordido" start="no" idTarget="Créditos" destinyX="-2147483648" destinyY="2147483647" transitionTime="0" transitionType="5" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="HasLlegadoAlRefugio" start="no" idTarget="Créditos" destinyX="-2147483648" destinyY="2147483647" transitionTime="0" transitionType="5" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="DemasiadoTarde" start="no" idTarget="Créditos" destinyX="-2147483648" destinyY="2147483647" transitionTime="0" transitionType="5" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
 </eAdventure>
