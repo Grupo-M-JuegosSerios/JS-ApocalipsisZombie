@@ -70,7 +70,7 @@ La mecánica principal es la pantalla táctil para:
 	 La estética del juego se mueve entre dos tipos de imágenes: aquellas con fotografías, que engloban sobre todo a los escenarios; y dibujos realizados digitalmente por una ilustradora, son principalmente los personajes y objetos.
 
 El menú principal y otras pantallas adicionales están basadas en las tonalidades rojas y verdes propias de la temática elegida.
-| ![enter image description here](https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/ZIUmbie/Recursos/Personajes/SinFondo/ProtagonistaSinFondo.png?raw=true)| ![enter image description here](https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/ZIUmbie/Recursos/Objetos/kisspng-barricade-barbed-wire-sandbag-fence-barbed-wire-material-png-5ad7cb27e3c075.5732824015240916879329.png?raw=true) |
+| ![enter image description here](https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/ZIUmbie/Recursos/Personajes/SinFondo/ProtagonistaSinFondo.png?raw=true)| ![enter image description here](https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/ZIUmbie/Recursos/Objetos/kisspng-barricade-barbed-wire-sandbag-fence-barbed-wire-material-png-5ad7cb27e3c075.5732824015240916879329.png?raw=true)|
 |--|--|
 
 ![enter image description here](https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/ZIUmbie/Recursos/Escenarios/LaboQuimica.jpg?raw=true)
@@ -83,7 +83,8 @@ El menú principal y otras pantallas adicionales están basadas en las tonalidad
 	 El personaje principal empieza en el metro de Ciudad Universitaria con la misión de encontrar el refugio del que le habían hablado. Casualmente se encuentra con Helena, que le ayudará a hallar ese destino a cambio de que la protagonista vaya a diferentes universidades para recoger diversos objetos que necesita Helena.
 
 Los puntos que se recorren son la universidades de: medicina, bellas artes o químicas, física, geografía e historia y por último informática con el objetivo de conocer y saber dónde están las facultades de la Complutense.
-	 4.2. **Personajes**
+
+ 4.2. **Personajes**
 
 
  4.3. **Objetos**
