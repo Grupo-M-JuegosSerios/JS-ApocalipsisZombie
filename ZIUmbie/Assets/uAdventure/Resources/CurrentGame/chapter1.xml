@@ -88,8 +88,9 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <active flag="TratoHombreCiu" />
-          <inactive flag="IrBellasArtes" />
+          <active flag="DarVendas" />
           <inactive flag="IrQuimicas" />
+          <inactive flag="IrBellasArtes" />
         </condition>
         <effect>
           <trigger-conversation idTarget="ConversacionIrAPorRecursos" />
@@ -396,6 +397,8 @@
           <condition />
           <set-value var="pinturas" value="0" />
           <condition />
+          <set-value var="objetosMedicina" value="0" />
+          <condition />
         </post-effect>
       </exit>
       <exit rectangular="yes" x="719" y="631" width="369" height="135" hasInfluenceArea="no" idTarget="Créditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
@@ -492,6 +495,8 @@
           <condition />
           <activate flag="AbandonarPerrete" />
           <condition />
+          <deactivate flag="BarricadaHecha" />
+          <condition />
         </post-effect>
       </exit>
     </exits>
@@ -539,7 +544,23 @@
         <not-effect>
           <speak-player>No me voy a ir ahora que tengo los objetos. Voy a buscar en la mochila y darle las muletas y el bisturí</speak-player>
           <condition>
-            <inactive flag="DarobjetosMedicinaAHelena" />
+            <inactive flag="DarMuletas" />
+            <inactive flag="DarBisturi" />
+          </condition>
+          <speak-player>Antes de irnos voy a buscar en la mochila las vendas para dárselas a la chica.</speak-player>
+          <condition>
+            <active flag="TratoHombreCiu" />
+            <inactive flag="DarVendas" />
+            <active flag="DarPastillasHombre" />
+          </condition>
+          <speak-player>Voy a buscar en mi mochila las pastillas y dárselas al señor.</speak-player>
+          <condition>
+            <inactive flag="DarPastillasHombre" />
+            <active flag="TratoHombreCiu" />
+          </condition>
+          <speak-player>Voy a hablar con la chica para irnos al refugio.</speak-player>
+          <condition>
+            <active flag="DarVendas" />
           </condition>
         </not-effect>
       </exit>
@@ -600,10 +621,7 @@
       <exit rectangular="yes" x="62" y="289" width="160" height="78" hasInfluenceArea="no" idTarget="CIU" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <active flag="PastillasEncontradas" />
-          <active flag="MuletasEncontradas" />
-          <active flag="PunteroEncontrado" />
-          <active flag="BisturiEncontrado" />
+          <equals var="objetosMedicina" value="5" />
         </condition>
         <post-effect>
           <activate flag="IrAMedicina" />
@@ -626,7 +644,7 @@
       <object-ref idTarget="sillaDeRuedas" x="898" y="636" scale="0.204157" layer="5" hasInfluenceArea="no" />
       <object-ref idTarget="bisturi" x="89" y="500" scale="0.02850303" layer="1" hasInfluenceArea="no" />
       <object-ref idTarget="Huesos" x="945" y="430" scale="0.06323124" layer="2" hasInfluenceArea="no" />
-      <object-ref idTarget="punteroLaser" x="116" y="671" scale="0.08142237" layer="3" hasInfluenceArea="no" />
+      <object-ref idTarget="punteroLaser" x="119" y="668" scale="0.08142237" layer="3" hasInfluenceArea="no" />
       <object-ref idTarget="Pastillas" x="552" y="653" scale="0.01609253" layer="4" hasInfluenceArea="no" />
     </objects>
   </scene>
@@ -965,15 +983,15 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4431804384827, -3.72645306579054)" zoom="18" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4510168759427, -3.73450911036183)" zoom="16" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4434127807617, -3.7269594669342)</param>
+        <param name="Position">(40.4433822631836, -3.72695684432983)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">15</param>
+        <param name="InteractionRange">20</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1055,14 +1073,14 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Horda" layer="0" scale="0.2833737" orientation="2">
+    <map-element targetId="Horda" layer="0" scale="0.270394" orientation="2">
       <condition>
         <active flag="IrBellasArtes" />
         <active flag="ItFisicas" />
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4500007629395, -3.72850751876831)</param>
+        <param name="Position">(40.4500885009766, -3.72844839096069)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">150</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -1079,16 +1097,16 @@
         <active flag="IrHaciaElRefugio" />
       </condition>
     </map-element>
-    <map-element targetId="Horda" layer="0" scale="0.3256664" orientation="2">
+    <map-element targetId="Horda" layer="0" scale="0.2366193" orientation="2">
       <condition>
         <active flag="IrQuimicas" />
         <active flag="IrHistoria" />
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4501037597656, -3.73461771011353)</param>
+        <param name="Position">(40.4504127502441, -3.73453712463379)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">150</param>
+        <param name="InteractionRange">160</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1133,7 +1151,7 @@
         <inactive flag="MeHanMordido" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
-        <param name="Position">(204.8, 664.8)</param>
+        <param name="Position">(188.7, 612.0)</param>
         <param name="Rotation">0</param>
       </ext-elem-ref>
     </map-element>
@@ -1545,7 +1563,7 @@
         <Polygon>
           <exterior>
             <LinearRing>
-              <posList>40.4505607060817 -3.72757962337156 40.4511893513488 -3.72768691173216 40.4510587242449 -3.72939279666563 40.4503321063447 -3.72926405063291</posList>
+              <posList>40.4505607060817 -3.72756889453548 40.4511893513488 -3.72767618289608 40.4510587242449 -3.72938206782955 40.4503321063447 -3.72925332179683</posList>
             </LinearRing>
           </exterior>
         </Polygon>
@@ -1596,13 +1614,6 @@
         </effect>
         <only-from-outside>True</only-from-outside>
       </enter-action>
-      <exit-action>
-        <effect>
-          <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
-          <condition />
-        </effect>
-        <only-from-inside>True</only-from-inside>
-      </exit-action>
     </actions>
   </geoelement>
   <geoelement id="puntoZ">
@@ -1798,9 +1809,9 @@
     <actions>
       <enter-action>
         <effect>
-          <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
-          <condition />
           <deactivate flag="DistraerZombies" />
+          <condition />
+          <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
           <condition />
         </effect>
         <only-from-outside>True</only-from-outside>
@@ -1900,6 +1911,8 @@
         <effect>
           <speak-player>Voy a buscar en la mochila para darle la pastilla.</speak-player>
           <condition />
+          <activate flag="TratoHombreCiu" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1931,6 +1944,8 @@
       <child nodeindex="1" />
       <effect>
         <consume-object idTarget="Vendas" />
+        <condition />
+        <activate flag="DarobjetosMedicinaAHelena" />
         <condition />
       </effect>
     </dialogue-node>
@@ -2452,7 +2467,7 @@
           <condition />
           <generate-object idTarget="Muletas" />
           <condition />
-          <activate flag="MuletasEncontradas" />
+          <increment var="objetosMedicina" value="1" />
           <condition />
           <speak-player>La chica ha dicho que no podía moverse, tal vez esto le venga bien.</speak-player>
           <condition />
@@ -2517,6 +2532,8 @@
           <condition />
           <speak-char idTarget="Ayudante">¡Gracias! Va a ser desagradable usarlo pero es necesario</speak-char>
           <condition />
+          <increment var="objetosMedicina" value="1" />
+          <condition />
         </effect>
       </give-to>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
@@ -2527,7 +2544,7 @@
           <condition />
           <speak-player>¡Justo lo que buscaba!</speak-player>
           <condition />
-          <activate flag="BisturiEncontrado" />
+          <increment var="objetosMedicina" value="1" />
           <condition />
         </effect>
       </grab>
@@ -2578,7 +2595,7 @@
           <speak-player>¿Un hueso?
  Probablemente no sea necesario, pero tengo la sensación de que debería cogerlo.</speak-player>
           <condition />
-          <activate flag="HuesoEncontrado" />
+          <increment var="objetosMedicina" value="1" />
           <condition />
         </effect>
       </grab>
@@ -2606,11 +2623,14 @@
           <condition />
           <speak-player>Supongo que esto será útil</speak-player>
           <condition />
-          <activate flag="PastillasEncontradas" />
+          <increment var="objetosMedicina" value="1" />
           <condition />
         </effect>
       </grab>
       <give-to idTarget="HombreCiu" needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="TratoHombreCiu" />
+        </condition>
         <effect>
           <consume-object idTarget="Pastillas" />
           <condition />
@@ -2644,7 +2664,7 @@
           <condition />
           <speak-player>No ocupa demasiado espacio, así que me lo quedaré por si acaso.</speak-player>
           <condition />
-          <activate flag="PunteroEncontrado" />
+          <increment var="objetosMedicina" value="1" />
           <condition />
         </effect>
       </grab>
