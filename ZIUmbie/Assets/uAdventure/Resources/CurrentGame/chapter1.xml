@@ -897,7 +897,7 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4433395812854, -3.72677493091277)" zoom="19" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4509566720183, -3.73448362937618)" zoom="17" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -1017,9 +1017,9 @@
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4494132995605, -3.73448348045349)</param>
+        <param name="Position">(40.4494438171387, -3.73452115058899)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">100</param>
+        <param name="InteractionRange">125</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1051,7 +1051,7 @@
         <active flag="BarricadaHecha" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4515533447266, -3.73432278633118)</param>
+        <param name="Position">(40.4517784118652, -3.73434948921204)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">25</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -1497,14 +1497,21 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="100">
-        <Point>
-          <pos>40.4509566720183 -3.73448362937618</pos>
-        </Point>
+      <geometry influence="10">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4501565725014 -3.73395791640926 40.4500290047337 -3.73570269337345 40.4518924906163 -3.73532450190236 40.4520047471517 -3.7333155273502</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
       </geometry>
     </geometries>
     <actions>
       <enter-action>
+        <condition>
+          <inactive flag="EncontrarHorda" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="Horda1" />
           <condition />
@@ -1514,8 +1521,6 @@
       <exit-action>
         <effect>
           <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
-          <condition />
-          <deactivate flag="DistraerZombies" />
           <condition />
         </effect>
         <only-from-inside>True</only-from-inside>
@@ -2051,16 +2056,12 @@
       <condition />
       <end-conversation>
         <effect>
+          <activate flag="EncontrarHorda" />
+          <condition />
           <trigger-conversation idTarget="Elegimosperro" />
           <condition>
             <active flag="AcariciarPerro" />
           </condition>
-          <trigger-conversation idTarget="Elegimosgato" />
-          <condition>
-            <active flag="AcariciarGato" />
-          </condition>
-          <activate flag="EncontrarHorda" />
-          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -2964,9 +2965,6 @@
     </description>
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <inactive flag="cogercables" />
-        </condition>
         <effect>
           <remove-element idTarget="Piladepetaca" />
           <condition />
@@ -2974,7 +2972,7 @@
           <condition>
             <inactive flag="cogercables" />
           </condition>
-          <speak-char idTarget="Ayudante">Si encuentras unos cables podemos crear un taser sacando la pila de la mochila y usándolos con la pila</speak-char>
+          <speak-char idTarget="Ayudante">Si encuentras unos cables podemos crear un taser.</speak-char>
           <condition>
             <inactive flag="cogercables" />
           </condition>
