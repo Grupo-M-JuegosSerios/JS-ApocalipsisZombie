@@ -100,6 +100,7 @@ Los puntos que se recorren son la universidades de: medicina, bellas artes o qu�
 # Archivos de interés
 
  - # Gameplay: 
+ https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/gameplay.mp4
 
 - # Documento de diseño del videojuego: 
 https://github.com/Grupo-M-JuegosSerios/JS-ApocalipsisZombie/blob/master/GDD.pdf
