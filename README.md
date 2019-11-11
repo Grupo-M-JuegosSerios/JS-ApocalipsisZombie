@@ -6,15 +6,19 @@ Desarrollado por:
 |--|--|--|--|--|--|
 
 
-
-
-
-
 El juego transcurre en un apocalipsis zombie, donde la protagonista va en busca de un conocido refugio para supervivientes en Ciudad Universitaria. Durante el juego se cruzará con distintos personajes que la ayudarán a conseguir su objetivo.
-|**Géneros**: Novela gráfica  |  **Modos:** Geocalizado|
+
+
+| **Géneros**: Novela gráfica |  **Modos:** Geocalizado|
 |--|--|
+
 |**Público objetivo**: Futuros estudiantes de Ciudad Universitaria |**Plataformas**: Android|
-|**Cantidades**: Escenarios: 8 Objetos: 23 Personajes: 6| |
+|--|--|
+
+**Cantidades**: 
+
+|**Escenarios:** 8 |**Objetos**: 23|**Personajes:** 6|
+|--|--|--|
 
 
 **Descripción**:
@@ -48,6 +52,7 @@ El juego cuenta con un menú inicial simple e intuitivo. Consta de una estética
  Durante el juego habrá que ir recogiendo items que nos mandan ir a buscar o que son necesarios para continuar la historia.
  
 	 3.1. **Mecánica**
+	 
 La mecánica principal es la pantalla táctil para:
 
 -   Tomar decisiones
@@ -55,7 +60,6 @@ La mecánica principal es la pantalla táctil para:
 -   Recoger objetos
     
 -   Interactuar con personajes
-
 	 
 	 3.2.**Dinámica**
 
