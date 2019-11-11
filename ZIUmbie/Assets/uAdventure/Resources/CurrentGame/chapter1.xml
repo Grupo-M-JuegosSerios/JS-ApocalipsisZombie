@@ -424,6 +424,74 @@
           <condition />
           <deactivate flag="buscandoObjLabQuim" />
           <condition />
+          <deactivate flag="AbandonarPerrete" />
+          <condition />
+          <deactivate flag="AyudarPerrete" />
+          <condition />
+          <deactivate flag="AbandonarPerrete" />
+          <condition />
+          <deactivate flag="cogercables" />
+          <condition />
+          <deactivate flag="BisturiEncontrado" />
+          <condition />
+          <deactivate flag="cogerPila" />
+          <condition />
+          <deactivate flag="ConstruyendoBarricada" />
+          <condition />
+          <deactivate flag="DarBisturi" />
+          <condition />
+          <deactivate flag="DarMuletas" />
+          <condition />
+          <deactivate flag="DarobjetosMedicinaAHelena" />
+          <condition />
+          <deactivate flag="DarObjetosQuimico" />
+          <condition />
+          <deactivate flag="DarPastillasHombre" />
+          <condition />
+          <deactivate flag="DarVendas" />
+          <condition />
+          <deactivate flag="DecisionPerro" />
+          <condition />
+          <deactivate flag="DistraerZombies" />
+          <condition />
+          <deactivate flag="EncontrarHelena" />
+          <condition />
+          <deactivate flag="EncontrarHorda" />
+          <condition />
+          <deactivate flag="HuesoEncontrado" />
+          <condition />
+          <deactivate flag="IrAMedicina" />
+          <condition />
+          <deactivate flag="IrBellasArtes" />
+          <condition />
+          <deactivate flag="IrHaciaElRefugio" />
+          <condition />
+          <deactivate flag="IrHistoria" />
+          <condition />
+          <deactivate flag="IrQuimicas" />
+          <condition />
+          <deactivate flag="ItFisicas" />
+          <condition />
+          <deactivate flag="MeHanMordido" />
+          <condition />
+          <deactivate flag="MuletasEncontradas" />
+          <condition />
+          <deactivate flag="PastillasEncontradas" />
+          <condition />
+          <deactivate flag="PunteroEncontrado" />
+          <condition />
+          <deactivate flag="RecogerPinturas" />
+          <condition />
+          <deactivate flag="RecogerPinturas" />
+          <condition />
+          <deactivate flag="TrasformarTaser" />
+          <condition />
+          <deactivate flag="TratoHombreCiu" />
+          <condition />
+          <deactivate flag="UsarDistraccion" />
+          <condition />
+          <activate flag="AbandonarPerrete" />
+          <condition />
         </post-effect>
       </exit>
     </exits>
@@ -897,7 +965,7 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4504388887572, -3.73321223250809)" zoom="16" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4431804384827, -3.72645306579054)" zoom="18" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
