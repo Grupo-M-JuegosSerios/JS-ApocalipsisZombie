@@ -323,8 +323,8 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <active flag="buscandoObjLabQuim" />
           <inactive flag="DarObjetosQuimico" />
+          <equals var="objetosLabQuimicas" value="5" />
         </condition>
         <effect>
           <trigger-conversation idTarget="DarObjetosSeñalHumoQuimico" />
@@ -468,6 +468,12 @@
         <condition>
           <active flag="DarobjetosMedicinaAHelena" />
         </condition>
+        <not-effect>
+          <speak-player>No me voy a ir ahora que tengo los objetos. Voy a buscar en la mochila y darle las muletas y el bisturí</speak-player>
+          <condition>
+            <inactive flag="DarobjetosMedicinaAHelena" />
+          </condition>
+        </not-effect>
       </exit>
     </exits>
     <objects>
@@ -566,12 +572,19 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="844" y="700" width="225" height="290" hasInfluenceArea="no" idTarget="LabQuímicas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="844" y="700" width="225" height="290" hasInfluenceArea="no" idTarget="LabQuímicas" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="AcariciarPerro" />
+        </condition>
         <post-effect>
           <trigger-conversation idTarget="ConversacionQuimico" />
           <condition />
         </post-effect>
+        <not-effect>
+          <speak-player>¡Un perro! Hacía mucho que no veía uno, le voy a acariciar</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <characters>
@@ -642,12 +655,19 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="425" y="295" width="340" height="695" hasInfluenceArea="no" idTarget="PasilloBellasArtes" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="425" y="295" width="340" height="695" hasInfluenceArea="no" idTarget="PasilloBellasArtes" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="AcariciarGato" />
+        </condition>
         <post-effect>
           <speak-char idTarget="Ayudante">¡Mira! ¡Allí hay sprays!</speak-char>
           <condition />
         </post-effect>
+        <not-effect>
+          <speak-player>¡Un gato! Hacía mucho que no veía uno, le voy a acariciar</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <characters>
@@ -877,7 +897,7 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4408838653096, -3.7298219203539)" zoom="15" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4433395812854, -3.72677493091277)" zoom="19" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -1798,6 +1818,10 @@
       <speak-char idTarget="Ayudante">En bellas artes hay sprays y pinturas que podríamos utilizar para dejar un mensaje, y en química siguen guardados ciertos reactivos con los que tal vez podamos hacer señales de humo. ¿Qué opinas?</speak-char>
       <condition />
       <child nodeindex="1" />
+      <effect>
+        <consume-object idTarget="Vendas" />
+        <condition />
+      </effect>
     </dialogue-node>
     <option-node nodeindex="1" preListening="yes" editor-x="386" editor-y="50" x="386" y="50">
       <speak-player>Me gusta el plan de Bellas Artes.</speak-player>
@@ -2263,7 +2287,7 @@
       <condition />
       <speak-char idTarget="Jefe">Maldita sea, es cierto.</speak-char>
       <condition />
-      <speak-player> Recoged vuestras cosas. Tenemos que salir de aquí.</speak-player>
+      <speak-player>Recoged vuestras cosas. Tenemos que salir de aquí.</speak-player>
       <condition />
       <end-conversation>
         <effect>
@@ -2900,7 +2924,9 @@
           <remove-element idTarget="Cables" />
           <condition />
           <generate-object idTarget="Cables" />
-          <condition />
+          <condition>
+            <inactive flag="cogerPila" />
+          </condition>
           <speak-char idTarget="Ayudante">Si encuentras una pila podemos crear un taser.</speak-char>
           <condition>
             <inactive flag="cogerPila" />
@@ -2909,25 +2935,18 @@
           <condition />
           <increment var="objetosFisica" value="1" />
           <condition />
-        </effect>
-      </grab>
-      <use-with idTarget="Piladepetaca" needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <active flag="cogerPila" />
-        </condition>
-        <effect>
-          <consume-object idTarget="Cables" />
-          <condition />
-          <consume-object idTarget="Piladepetaca" />
-          <condition />
           <generate-object idTarget="taser" />
-          <condition />
+          <condition>
+            <active flag="cogerPila" />
+          </condition>
           <speak-player>¡Esto ya me gusta más!</speak-player>
-          <condition />
+          <condition>
+            <active flag="cogerPila" />
+          </condition>
           <activate flag="TrasformarTaser" />
           <condition />
         </effect>
-      </use-with>
+      </grab>
     </actions>
   </object>
   <object id="Piladepetaca" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -2945,12 +2964,17 @@
     </description>
     <actions>
       <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="cogercables" />
+        </condition>
         <effect>
           <remove-element idTarget="Piladepetaca" />
           <condition />
           <generate-object idTarget="Piladepetaca" />
-          <condition />
-          <speak-char idTarget="Ayudante">Si encuentras unos cables podemos crear un taser.</speak-char>
+          <condition>
+            <inactive flag="cogercables" />
+          </condition>
+          <speak-char idTarget="Ayudante">Si encuentras unos cables podemos crear un taser sacando la pila de la mochila y usándolos con la pila</speak-char>
           <condition>
             <inactive flag="cogercables" />
           </condition>
@@ -2958,25 +2982,16 @@
           <condition />
           <increment var="objetosFisica" value="1" />
           <condition />
-        </effect>
-      </grab>
-      <use-with idTarget="Cables" needsGoTo="yes" keepDistance="35" not-effects="no">
-        <condition>
-          <active flag="cogercables" />
-        </condition>
-        <effect>
-          <consume-object idTarget="Piladepetaca" />
-          <condition />
-          <consume-object idTarget="Cables" />
-          <condition />
           <generate-object idTarget="taser" />
           <condition />
           <speak-player>¡Esto ya me gusta más!</speak-player>
-          <condition />
+          <condition>
+            <active flag="cogercables" />
+          </condition>
           <activate flag="TrasformarTaser" />
           <condition />
         </effect>
-      </use-with>
+      </grab>
     </actions>
   </object>
   <object id="Palosdemadera" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
@@ -3067,7 +3082,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/invasion.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -3076,7 +3091,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/EresUnZ.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -3085,7 +3100,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/Winner.eaa.xml" />
     </resources>
     <name>
     </name>
@@ -3094,7 +3109,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="slides" uri="assets/special/EmptyAnimation" />
+      <asset type="slides" uri="assets/animation/tarde.eaa.xml" />
     </resources>
     <name>
     </name>
