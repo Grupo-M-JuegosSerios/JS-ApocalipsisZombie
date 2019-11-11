@@ -445,6 +445,10 @@
           <condition />
           <speak-char idTarget="Ayudante">¡Sí! ¡Ayúdame, estoy al lado de la antigua parada del autobús! Cerca de la salida del antiguo metro.</speak-char>
           <condition />
+          <navigate navigation-type="Ordered">
+            <step locks="False">Ayudante</step>
+          </navigate>
+          <condition />
         </post-effect>
       </exit>
     </exits>
@@ -873,7 +877,7 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4509559115295, -3.73447823520403)" zoom="16" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4408838653096, -3.7298219203539)" zoom="15" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -955,7 +959,7 @@
         <active flag="RecogerPinturas" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4398765563965, -3.73202800750732)</param>
+        <param name="Position">(40.4393653869629, -3.73276162147522)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">350</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -969,7 +973,7 @@
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4492492675781, -3.72844338417053)</param>
+        <param name="Position">(40.4493064880371, -3.72851824760437)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">100</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -993,7 +997,7 @@
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.449405670166, -3.73447823524475)</param>
+        <param name="Position">(40.4494132995605, -3.73448348045349)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">100</param>
         <param name="RevealOnlyOnRange">True</param>
@@ -1040,7 +1044,7 @@
         <inactive flag="MeHanMordido" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
-        <param name="Position">(191.4, 604.0)</param>
+        <param name="Position">(204.8, 664.8)</param>
         <param name="Rotation">0</param>
       </ext-elem-ref>
     </map-element>
@@ -1052,6 +1056,97 @@
         <param name="Position">(40.4520416259766, -3.7346498966217)</param>
         <param name="Rotation">0</param>
         <param name="InteractionRange">50</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="puntoZ" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ2" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ3" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ4" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ5" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ6" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="puntoZ7" layer="0" scale="1" orientation="2">
+      <condition />
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4491653442383, -3.73319602012634)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">30</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4530143737793, -3.73049235343933)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">30</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4428405761719, -3.72683382034302)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4493865966797, -3.72711277008057)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">25</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4475593566895, -3.72772431373596)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.04656462" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4441871643066, -3.72706985473633)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
+        <param name="RevealOnlyOnRange">True</param>
+        <param name="RevealParticleTexture">leaf_particle.png</param>
+      </ext-elem-ref>
+    </map-element>
+    <map-element targetId="Zombie" layer="0" scale="0.05672187" orientation="2">
+      <condition />
+      <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
+        <param name="Position">(40.4436798095703, -3.72619009017944)</param>
+        <param name="Rotation">0</param>
+        <param name="InteractionRange">15</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1406,6 +1501,180 @@
         <only-from-inside>True</only-from-inside>
       </exit-action>
     </actions>
+  </geoelement>
+  <geoelement id="puntoZ">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="15">
+        <Point>
+          <pos>40.443835537027 -3.72619103425449</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-player>Hay un zombie, debería bordear esta zona para que no me vea</speak-player>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ2">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="15">
+        <Point>
+          <pos>40.4443172760394 -3.72706543439337</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-char idTarget="Ayudante">¡Mierda! Hay un zombie. Vamos a bordear la zona para que no nos vea.</speak-char>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ3">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="15">
+        <Point>
+          <pos>40.442986361548 -3.72682940000062</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-char idTarget="Ayudante">¡Mierda! Hay un zombie. Vamos a bordear la zona para que no nos vea.</speak-char>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ4">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="15">
+        <Point>
+          <pos>40.4476975170816 -3.72770916455688</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-char idTarget="Ayudante">¡Mierda! Hay un zombie. Vamos a bordear la zona para que no nos vea.</speak-char>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ5">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="25">
+        <Point>
+          <pos>40.4495263688974 -3.72711907857362</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-char idTarget="Ayudante">¡Mierda! Hay un zombie. Vamos a bordear la zona para que no nos vea.</speak-char>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ6">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="30">
+        <Point>
+          <pos>40.4493140940074 -3.73320232861941</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <speak-char idTarget="Ayudante">¡Mierda! Hay un zombie. Vamos a bordear la zona para que no nos vea.</speak-char>
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
+  </geoelement>
+  <geoelement id="puntoZ7">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="30">
+        <Point>
+          <pos>40.4531512673715 -3.73049866193237</pos>
+        </Point>
+      </geometry>
+    </geometries>
+    <actions />
   </geoelement>
   <graph-conversation id="InicioJuego">
     <dialogue-node nodeindex="0" editor-x="58" editor-y="37">
