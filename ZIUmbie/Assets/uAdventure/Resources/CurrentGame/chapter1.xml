@@ -897,7 +897,7 @@
       </character-ref>
     </characters>
   </scene>
-  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4509566720183, -3.73448362937618)" zoom="17" start="no">
+  <map-scene id="CIU" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="yes" gameplayArea="40.4390728915658 -3.73805165290839 0.0148615215872354 0.0161844491958432" center="(40.4504388887572, -3.73321223250809)" zoom="16" start="no">
     <map-element targetId="Ayudante" layer="0" scale="0.02916353" orientation="0">
       <condition>
         <inactive flag="EncontrarHelena" />
@@ -956,6 +956,7 @@
           <active flag="IrBellasArtes" />
           <active flag="IrQuimicas" />
         </either>
+        <inactive flag="ConstruyendoBarricada" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.ScreenDescriptor">
         <param name="Position">(697.3, 606.4)</param>
@@ -986,16 +987,16 @@
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
     </map-element>
-    <map-element targetId="Horda" layer="0" scale="0.5644387" orientation="2">
+    <map-element targetId="Horda" layer="0" scale="0.2833737" orientation="2">
       <condition>
         <active flag="IrBellasArtes" />
         <active flag="ItFisicas" />
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4493064880371, -3.72851824760437)</param>
+        <param name="Position">(40.4500007629395, -3.72850751876831)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">100</param>
+        <param name="InteractionRange">150</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1010,16 +1011,16 @@
         <active flag="IrHaciaElRefugio" />
       </condition>
     </map-element>
-    <map-element targetId="Horda" layer="0" scale="0.5644387" orientation="2">
+    <map-element targetId="Horda" layer="0" scale="0.3256664" orientation="2">
       <condition>
         <active flag="IrQuimicas" />
         <active flag="IrHistoria" />
         <inactive flag="DistraerZombies" />
       </condition>
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
-        <param name="Position">(40.4494438171387, -3.73452115058899)</param>
+        <param name="Position">(40.4501037597656, -3.73461771011353)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">125</param>
+        <param name="InteractionRange">150</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1053,7 +1054,7 @@
       <ext-elem-ref transformManager="uAdventure.Geo.GeopositionedDescriptor">
         <param name="Position">(40.4517784118652, -3.73434948921204)</param>
         <param name="Rotation">0</param>
-        <param name="InteractionRange">25</param>
+        <param name="InteractionRange">150</param>
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
@@ -1170,6 +1171,11 @@
         <param name="RevealOnlyOnRange">True</param>
         <param name="RevealParticleTexture">leaf_particle.png</param>
       </ext-elem-ref>
+    </map-element>
+    <map-element targetId="cruce" layer="0" scale="1" orientation="2">
+      <condition>
+        <active flag="UsarDistraccion" />
+      </condition>
     </map-element>
   </map-scene>
   <map-scene id="Preinicio" cameraType="Aerial2D" renderStyle="Tile" tileMetaIdentifier="OSMTile" usesGameplayArea="no" gameplayArea="0 0 0 0" center="(40.4436456982474, -3.72700374358588)" zoom="19" start="no">
@@ -1467,10 +1473,14 @@
       </detailed>
     </description>
     <geometries>
-      <geometry influence="130">
-        <Point>
-          <pos>40.4508178799277 -3.72845402351042</pos>
-        </Point>
+      <geometry influence="20">
+        <Polygon>
+          <exterior>
+            <LinearRing>
+              <posList>40.4505607060817 -3.72757962337156 40.4511893513488 -3.72768691173216 40.4510587242449 -3.72939279666563 40.4503321063447 -3.72926405063291</posList>
+            </LinearRing>
+          </exterior>
+        </Polygon>
       </geometry>
     </geometries>
     <actions>
@@ -1700,6 +1710,34 @@
       </geometry>
     </geometries>
     <actions />
+  </geoelement>
+  <geoelement id="cruce">
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <geometries>
+      <geometry influence="10">
+        <LineString>
+          <posList>40.4521096635602 -3.73272989705362 40.4521144357469 -3.73549829953623</posList>
+        </LineString>
+      </geometry>
+    </geometries>
+    <actions>
+      <enter-action>
+        <effect>
+          <trigger-conversation idTarget="LlegarInformatica-Quimicas" />
+          <condition />
+          <deactivate flag="DistraerZombies" />
+          <condition />
+        </effect>
+        <only-from-outside>True</only-from-outside>
+      </enter-action>
+    </actions>
   </geoelement>
   <graph-conversation id="InicioJuego">
     <dialogue-node nodeindex="0" editor-x="58" editor-y="37">
@@ -2061,6 +2099,10 @@
           <trigger-conversation idTarget="Elegimosperro" />
           <condition>
             <active flag="AcariciarPerro" />
+          </condition>
+          <trigger-conversation idTarget="Elegimosgato" />
+          <condition>
+            <active flag="AcariciarGato" />
           </condition>
         </effect>
       </end-conversation>
