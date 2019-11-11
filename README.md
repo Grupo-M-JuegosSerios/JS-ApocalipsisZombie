@@ -52,6 +52,7 @@ El juego cuenta con un menú inicial simple e intuitivo. Consta de una estética
  Durante el juego habrá que ir recogiendo items que nos mandan ir a buscar o que son necesarios para continuar la historia.
  
 	 3.1. **Mecánica**
+	 
 La mecánica principal es la pantalla táctil para:
 
 -   Tomar decisiones
